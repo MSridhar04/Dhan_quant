@@ -1,0 +1,26 @@
+🎯 dhan_prob verdict · 2026 test
+Trained Nov21–Dec25 · tested 1 Jan–13 Nov 2026 (never seen)
+
+✅ The percentages are honest
+When it said "bullish 42%", it was bullish 41% of the time (SENSEX). Calibration is good on both indexes.
+
+❌ But it almost never leans hard
+Next 5 min: readings stay 20–45%, close to normal odds (bear 28 / side 43 / bull 29).
+≥65% readings in 2026: 0 (NIFTY), 0 (SENSEX)
+Better than "time-of-day odds" by only 0.5% (NIFTY) and 1.2% (SENSEX)
+15 min: same story
+
+🔍 One real signal: SENSEX next 1 min
+SENSEX follows NIFTY's last minute (lead-lag).
+≥60% readings: 3 a day, right 62% (opposite only 9%)
+But buying the option on them in 2026:
+gross +₹28,885 → net −₹31,419 after charges (997 trades)
+The edge is real but smaller than charges.
+
+Verdict: a trustworthy "weather report", not a trading signal for option buying.
+What drives the odds most: time of day, volatility, IV/straddle price, NIFTY↔SENSEX gap.
+
+Options from here:
+1. Use it as a FILTER for our 7 strategies (skip trades when odds are against them)
+2. Use the NIFTY→SENSEX lead-lag with futures (lower costs) – needs a futures test
+3. Park it

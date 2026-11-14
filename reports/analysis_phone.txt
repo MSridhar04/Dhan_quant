@@ -1,0 +1,18 @@
+🔎 dhan_prob · Stage 4: how the minutes behave
+Nov 2021 – Dec 2025 (2026 kept for the test)
+
+NIFTY
+Next 5 min normal odds: bear 28% · side 43% · bull 29%
+After the biggest 5-min rises: bull 27%
+After the biggest 5-min falls: bear 28%
+Moves at 09:15-09:30 are 1.9× midday size
+Sideways on expiry days 44% vs 43% other days
+
+SENSEX
+Next 5 min normal odds: bear 28% · side 43% · bull 29%
+After the biggest 5-min rises: bull 27%
+After the biggest 5-min falls: bear 28%
+Moves at 09:15-09:30 are 1.9× midday size
+Sideways on expiry days 45% vs 43% other days
+
+Next: model trained on ≤2025, tested on 2026.

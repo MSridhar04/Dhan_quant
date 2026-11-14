@@ -1,0 +1,134 @@
+dhan_prob: probability of the next move after each 1-min candle
+Trained on Nov 2021 - Dec 2025 only. TEST = 1 Jan 2026 onwards (never seen, model frozen before).
+
+===== NIFTY  next 5 min  (test 01 Jan 2026 .. 13 Nov 2026, 76,671 minutes)
+normal odds (training): bear 28% / side 43% / bull 29%
+log-loss: model 1.0703 | overall odds 1.0779 | time-of-day odds 1.0754  -> model better than time-of-day odds by 0.48%
+
+CALIBRATION on 2026 (said X% -> it happened Y% of the time):
+  class   said     n  said_avg  happened
+bullish 10-20%   771      18.9      23.9
+bullish 20-30% 42866      26.5      26.0
+bullish 30-40% 31582      33.1      30.6
+bullish 40-50%  1451      41.9      34.7
+bearish 10-20%  1021      18.1      14.8
+bearish 20-30% 55115      26.4      27.6
+bearish 30-40% 20456      32.2      32.9
+
+STRONG READINGS on 2026:
+       reading  count  per_day  came_true_%  opposite_%
+bullish >= 50%      1      0.0          0.0       100.0
+bearish >= 50%      0      0.0          NaN         NaN
+bullish >= 55%      0      0.0          NaN         NaN
+bearish >= 55%      0      0.0          NaN         NaN
+bullish >= 60%      0      0.0          NaN         NaN
+bearish >= 60%      0      0.0          NaN         NaN
+bullish >= 65%      0      0.0          NaN         NaN
+bearish >= 65%      0      0.0          NaN         NaN
+bullish >= 70%      0      0.0          NaN         NaN
+bearish >= 70%      0      0.0          NaN         NaN
+
+MONTH BY MONTH (top pick right %):
+         minutes  right_pct
+ts                         
+2026-01     7200       43.2
+2026-02     7200       42.4
+2026-03     6840       41.1
+2026-04     7200       43.8
+2026-05     6840       42.6
+2026-06     7560       42.0
+2026-07     8280       44.6
+2026-08     7560       43.5
+2026-09     7560       43.2
+2026-10     7200       44.1
+2026-11     3231       43.9
+
+WHAT MATTERS MOST (top 12 features):
+mod, sigma60, straddle_bp, iv_atm, rsi14, vol_ratio, atr14_bp, quiet, prev_ret, prev_range, sigma15, from_twap
+
+PROFIT CHECK 2026 (buy ATM option on the reading, sell 5 min later, after charges, 1 lot):
+  >= 50%: 1 trades, gross -904, net -973, win 0%
+  >= 55%: 0 trades, gross 0, net 0, win nan%
+  >= 60%: 0 trades, gross 0, net 0, win nan%
+  >= 65%: 0 trades, gross 0, net 0, win nan%
+
+===== NIFTY  next 1 min  (test 01 Jan 2026 .. 13 Nov 2026, 77,523 minutes)
+normal odds (training): bear 28% / side 44% / bull 28%
+log-loss: model 1.0592 | overall odds 1.0733 | time-of-day odds 1.0696  -> model better than time-of-day odds by 0.97%
+       reading  count  per_day  came_true_%  opposite_%
+bullish >= 60%      0      0.0          NaN         NaN
+bearish >= 60%      0      0.0          NaN         NaN
+
+===== NIFTY  next 15 min  (test 01 Jan 2026 .. 13 Nov 2026, 74,541 minutes)
+normal odds (training): bear 28% / side 43% / bull 29%
+log-loss: model 1.0756 | overall odds 1.0799 | time-of-day odds 1.0798  -> model better than time-of-day odds by 0.39%
+       reading  count  per_day  came_true_%  opposite_%
+bullish >= 60%      0      0.0          NaN         NaN
+bearish >= 60%      0      0.0          NaN         NaN
+
+===== SENSEX  next 5 min  (test 01 Jan 2026 .. 13 Nov 2026, 76,680 minutes)
+normal odds (training): bear 28% / side 43% / bull 29%
+log-loss: model 1.0612 | overall odds 1.0766 | time-of-day odds 1.0745  -> model better than time-of-day odds by 1.24%
+
+CALIBRATION on 2026 (said X% -> it happened Y% of the time):
+  class   said     n  said_avg  happened
+bullish 10-20%  4178      17.9      16.9
+bullish 20-30% 44633      25.6      25.5
+bullish 30-40% 25219      33.6      32.4
+bullish 40-50%  2579      42.8      41.3
+bearish 10-20%  4584      18.1      18.5
+bearish 20-30% 48846      25.4      26.3
+bearish 30-40% 21889      33.5      34.9
+bearish 40-50%  1344      42.2      44.4
+
+STRONG READINGS on 2026:
+       reading  count  per_day  came_true_%  opposite_%
+bullish >= 50%     69      0.3         55.1        17.4
+bearish >= 50%     13      0.1         92.3         0.0
+bullish >= 55%     10      0.0         90.0         0.0
+bearish >= 55%      0      0.0          NaN         NaN
+bullish >= 60%      1      0.0        100.0         0.0
+bearish >= 60%      0      0.0          NaN         NaN
+bullish >= 65%      0      0.0          NaN         NaN
+bearish >= 65%      0      0.0          NaN         NaN
+bullish >= 70%      0      0.0          NaN         NaN
+bearish >= 70%      0      0.0          NaN         NaN
+
+MONTH BY MONTH (top pick right %):
+         minutes  right_pct
+ts                         
+2026-01     7200       44.2
+2026-02     7200       44.6
+2026-03     6840       42.0
+2026-04     7200       44.4
+2026-05     6840       42.5
+2026-06     7560       42.3
+2026-07     8280       45.7
+2026-08     7560       46.1
+2026-09     7560       45.0
+2026-10     7200       44.2
+2026-11     3240       42.9
+
+WHAT MATTERS MOST (top 12 features):
+x_gap5, mod, sigma60, x_r1, rsi14, straddle_bp, vol_ratio, atr14_bp, body, iv_atm, r1, prev_range
+
+PROFIT CHECK 2026 (buy ATM option on the reading, sell 5 min later, after charges, 1 lot):
+  >= 50%: 75 trades, gross -4,281, net -8,812, win 40%
+  >= 55%: 9 trades, gross 1,313, net 772, win 44%
+  >= 60%: 1 trades, gross 20, net -36, win 0%
+  >= 65%: 0 trades, gross 0, net 0, win nan%
+
+===== SENSEX  next 1 min  (test 01 Jan 2026 .. 13 Nov 2026, 77,532 minutes)
+normal odds (training): bear 28% / side 44% / bull 28%
+log-loss: model 1.0285 | overall odds 1.0751 | time-of-day odds 1.0723  -> model better than time-of-day odds by 4.09%
+       reading  count  per_day  came_true_%  opposite_%
+bullish >= 60%    699      3.3         63.5         9.3
+bearish >= 60%    366      1.7         61.2         8.7
+
+===== SENSEX  next 15 min  (test 01 Jan 2026 .. 13 Nov 2026, 74,550 minutes)
+normal odds (training): bear 28% / side 43% / bull 29%
+log-loss: model 1.0697 | overall odds 1.0762 | time-of-day odds 1.0761  -> model better than time-of-day odds by 0.60%
+       reading  count  per_day  came_true_%  opposite_%
+bullish >= 60%      0      0.0          NaN         NaN
+bearish >= 60%      0      0.0          NaN         NaN
+
