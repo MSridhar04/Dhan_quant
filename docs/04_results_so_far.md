@@ -13,6 +13,7 @@
 | 15 Nov | **Research #1 VRP**: sell hedged ATM straddle 1–3 days before weekly expiry, hold to expiry | Best on training +₹55k → unseen NIFTY +₹9k, SENSEX +₹2k; luck-adjusted 0–1% (see `06_vrp.md`) | Weekly option premium isn't reliably rich after costs; results depend on the period |
 | 15 Nov | **Research #2 regimes**: skip strategies in regimes they lost in before (rule / clustering / hidden Markov), walk-forward 2023–26 | Hurts: +₹6.78L → +₹3.83L to +₹5.06L; helped 0–1 of 4 years (see `07_regimes.md`) | Strategies earn in most regimes; keep them all on |
 | 15 Nov | **Research #3 position sizing**: inverse volatility / risk parity / vol targeting / drawdown brake, sizes from past data, test 2023–26 | Inverse volatility: same profit, worst drop −18% (2-lot base: ₹13.13L / −₹1.38L vs ₹13.12L / −₹1.68L) (see `08_sizing.md`) | Use it when scaling to 2+ lots; nothing to change at 1 lot |
+| 15 Nov | **Research #4 calendar & events**: weekday, expiry distance, month start/end, RBI/Budget/Fed/election | Skip rules hurt (+₹6.54L → +₹4.0–4.9L); only EMA SENSEX on Fridays lost in both periods (−₹26k unseen) (see `09_calendar.md`) | No rules; watch EMA SENSEX Fridays in paper |
 
 Related dhan_algo results that shape the plan:
 - **5 years:** the 7 paper strategies ≈ ₹0 on Nov 2021 – Oct 2023 (never tuned on) vs +₹6.2L on the tuned years.

@@ -1,0 +1,18 @@
+🧪 dhan_quant · Research #4: calendar & event effects
+8 paper strategies · weekday, days to expiry, month start/end, RBI / Budget / Fed / election days
+Picked ≤2024 · checked 2025–26 · walk-forward 2023–26
+
+📅 How much NIFTY moves (average day range)
+Election result 863bp · Budget 213bp · RBI 110bp · day after Fed 102bp · normal day 98bp
+→ Budget days move about 2× a normal day; RBI and Fed days only slightly more
+
+⏭️ "Skip a strategy on days it lost on before" (walk-forward)
+weekday +6.54L → +4.22L · expiry +6.54L → +4.88L · month +6.54L → +4.01L · events +6.54L → +4.46L
+❌ Hurts every time (helped in 0–1 of 4 years)
+
+🔎 Losing in BOTH periods (only 5 cases, most tiny):
+• EMA SENSEX on Fridays: −₹243/trade (57) → −₹410/trade (64) · 2023 −16k, 2024 +3k, 2025 −4k, 2026 −22k
+• Prev-zone NIFTY on Mondays / expiry days, EMA SENSEX on expiry days: −₹16 to −₹66 per trade unseen (negligible)
+
+Verdict: no calendar rules for now. Out of ~140 strategy×day combinations, a few staying negative is what chance alone would produce.
+One to WATCH in paper: EMA SENSEX on Fridays (lost 3 of 4 years, −₹26k in 2025–26). If paper confirms over the next months, skipping Fridays for it is a simple rule to add.

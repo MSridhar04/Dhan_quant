@@ -1,0 +1,207 @@
+RESEARCH #4: CALENDAR AND EVENT EFFECTS (8 paper strategies, 5-year backtest trades)
+Picking years <= 2024, unseen 2025-26; walk-forward skip test by year 2023-2026.
+Event dates: RBI 2021-2025, Budget (weekday sessions), 2024 election result, day after US Fed decision 2021-2026.
+
+INDEX CONTEXT: NIFTY average day range / open-to-close move (bp) by event
+                 range_bp  move_bp  days
+event                                   
+Budget              213.0     59.0     4
+Election result     863.0    510.0     1
+RBI policy          110.0     67.0    26
+day after Fed       102.0     54.0    39
+normal day           98.0     52.0  1169
+
+by weekday:
+         range_bp  move_bp
+weekday                   
+Fri         101.0     55.0
+Mon         102.0     53.0
+Thu         102.0     53.0
+Tue         100.0     54.0
+Wed          93.0     47.0
+
+by month:
+              range_bp  move_bp
+month                          
+first 3 days     109.0     58.0
+last 3 days      100.0     53.0
+mid-month         98.0     51.0
+
+===== weekday
+average Rs per trade (pick = <=2024, unseen = 2025-26):
+                               mean_pick  mean_unseen  size_pick  size_unseen
+strategy              weekday                                                
+ema_cross_sensex      Fri         -243.0       -410.0         57           64
+                      Mon         -149.0        153.0         56           68
+                      Thu          271.0        302.0         57           64
+                      Tue           53.0         78.0         69           68
+                      Wed          825.0        218.0         60           69
+failbreak_nifty       Fri         2342.0       -341.0          8            4
+                      Mon         -264.0       -107.0         11            4
+                      Thu          863.0       3798.0         11           12
+                      Tue           71.0      -1363.0          8            7
+                      Wed          633.0       -874.0         17            6
+judas_swing           Fri          -41.0       1123.0         29           16
+                      Mon          302.0        483.0         30           11
+                      Thu          386.0       -567.0         27           13
+                      Tue          417.0        205.0         29           10
+                      Wed           70.0       1065.0         29           13
+orb_breakout          Fri          401.0       1068.0         52           35
+                      Mon          312.0        379.0         57           29
+                      Thu          365.0        227.0         63           32
+                      Tue          225.0       -236.0         44           21
+                      Wed          322.0        245.0         67           32
+pivot_breakout        Fri          -17.0          6.0         63           43
+                      Mon          350.0          4.0         65           33
+                      Thu          233.0        379.0         76           46
+                      Tue           94.0        573.0         64           33
+                      Wed            1.0        493.0         78           37
+pivot_breakout_sensex Fri         -266.0        332.0         20           33
+                      Mon          357.0        190.0         26           25
+                      Thu          677.0         -2.0         26           36
+                      Tue         -310.0        801.0         29           21
+                      Wed         -139.0        885.0         39           35
+prev_zone_breakout    Fri          263.0        601.0         59           45
+                      Mon         -271.0        -54.0         51           36
+                      Thu         -350.0        599.0         56           44
+                      Tue           19.0       -366.0         55           28
+                      Wed          157.0        103.0         64           32
+psar_sensex           Fri         1043.0         73.0         26           42
+                      Mon          -71.0        121.0         34           29
+                      Thu          533.0        366.0         35           49
+                      Tue         -350.0       1683.0         42           32
+                      Wed           80.0        326.0         47           43
+
+walk-forward (skip buckets that lost in earlier years):
+           all      kept  skipped
+year                             
+2023  -19009.0  -19596.0      119
+2024  276684.0  179516.0      315
+2025  124328.0   29290.0      228
+2026  272046.0  233235.0      190
+TOTAL 654,049 -> 422,444
+consistent effects: ema_cross_sensex on Fri: -243 → -410 per trade (57/64 trades); ema_cross_sensex on Thu: +271 → +302 per trade (57/64 trades); ema_cross_sensex on Wed: +825 → +218 per trade (60/69 trades); failbreak_nifty on Thu: +863 → +3798 per trade (11/12 trades); judas_swing on Mon: +302 → +483 per trade (30/11 trades); judas_swing on Tue: +417 → +205 per trade (29/10 trades); orb_breakout on Fri: +401 → +1068 per trade (52/35 trades); orb_breakout on Mon: +312 → +379 per trade (57/29 trades); orb_breakout on Thu: +365 → +227 per trade (63/32 trades); orb_breakout on Wed: +322 → +245 per trade (67/32 trades); pivot_breakout on Thu: +233 → +379 per trade (76/46 trades); pivot_breakout_sensex on Mon: +357 → +190 per trade (26/25 trades); prev_zone_breakout on Fri: +263 → +601 per trade (59/45 trades); psar_sensex on Thu: +533 → +366 per trade (35/49 trades)
+
+===== expiry
+average Rs per trade (pick = <=2024, unseen = 2025-26):
+                                      mean_pick  mean_unseen  size_pick  size_unseen
+strategy              expiry                                                        
+ema_cross_sensex      1 day before        547.0        145.0       60.0         75.0
+                      2 day before        697.0        146.0       66.0         65.0
+                      3+ days before     -156.0         54.0      114.0        119.0
+                      expiry day         -246.0        -41.0       59.0         74.0
+failbreak_nifty       1 day before        757.0      -1362.0       16.0          4.0
+                      2 day before        -88.0       -381.0        9.0          7.0
+                      3+ days before      955.0       1458.0       18.0         13.0
+                      expiry day          677.0       2018.0       12.0          9.0
+judas_swing           1 day before         -1.0        620.0       31.0         14.0
+                      2 day before        758.0       -738.0       34.0         13.0
+                      3+ days before      -72.0       1562.0       52.0         20.0
+                      expiry day          386.0         92.0       27.0         16.0
+orb_breakout          1 day before        259.0         21.0       65.0         35.0
+                      2 day before        552.0        525.0       51.0         26.0
+                      3+ days before      231.0        970.0       99.0         52.0
+                      expiry day          373.0       -174.0       68.0         36.0
+pivot_breakout        1 day before        -60.0        184.0       83.0         40.0
+                      2 day before         31.0        358.0       68.0         41.0
+                      3+ days before      225.0        175.0      116.0         66.0
+                      expiry day          280.0        475.0       79.0         45.0
+pivot_breakout_sensex 1 day before        658.0        849.0       27.0         25.0
+                      2 day before       -102.0        568.0       41.0         29.0
+                      3+ days before        6.0        220.0       51.0         69.0
+                      expiry day         -322.0        390.0       21.0         27.0
+prev_zone_breakout    1 day before         56.0       -305.0       72.0         35.0
+                      2 day before         -1.0        262.0       55.0         40.0
+                      3+ days before       50.0        687.0      100.0         69.0
+                      expiry day         -272.0        -66.0       58.0         41.0
+psar_sensex           1 day before        436.0        637.0       37.0         35.0
+                      2 day before         51.0        301.0       49.0         35.0
+                      3+ days before     -185.0         51.0       70.0         83.0
+                      expiry day          956.0       1317.0       28.0         42.0
+
+walk-forward (skip buckets that lost in earlier years):
+           all      kept  skipped
+year                             
+2023  -19009.0   -9502.0      147
+2024  276684.0  180962.0      408
+2025  124328.0   86516.0      273
+2026  272046.0  229821.0      221
+TOTAL 654,049 -> 487,796
+consistent effects: failbreak_nifty on 3+ days before: +955 → +1458 per trade (18/13 trades); orb_breakout on 2 day before: +552 → +525 per trade (51/26 trades); orb_breakout on 3+ days before: +231 → +970 per trade (99/52 trades); pivot_breakout on 3+ days before: +225 → +175 per trade (116/66 trades); pivot_breakout on expiry day: +280 → +475 per trade (79/45 trades); pivot_breakout_sensex on 1 day before: +658 → +849 per trade (27/25 trades); psar_sensex on 1 day before: +436 → +637 per trade (37/35 trades); psar_sensex on expiry day: +956 → +1317 per trade (28/42 trades)
+
+===== month
+average Rs per trade (pick = <=2024, unseen = 2025-26):
+                                    mean_pick  mean_unseen  size_pick  size_unseen
+strategy              month                                                       
+ema_cross_sensex      first 3 days     -258.0        737.0         44           51
+                      last 3 days      -235.0        -16.0         44           50
+                      mid-month         323.0        -56.0        211          232
+failbreak_nifty       first 3 days     -837.0       -959.0          4            3
+                      last 3 days       633.0       1174.0          8            5
+                      mid-month         812.0       1040.0         43           25
+judas_swing           first 3 days     -195.0       -326.0         18            5
+                      last 3 days       129.0       1041.0         17           11
+                      mid-month         309.0        468.0        109           47
+orb_breakout          first 3 days      717.0          0.0         32           13
+                      last 3 days      -117.0        418.0         35           25
+                      mid-month         344.0        433.0        216          111
+pivot_breakout        first 3 days      373.0        310.0         43           20
+                      last 3 days       165.0        327.0         49           29
+                      mid-month          84.0        275.0        254          143
+pivot_breakout_sensex first 3 days     -299.0       1945.0         19           13
+                      last 3 days      -306.0        240.0         20           24
+                      mid-month         187.0        286.0        101          113
+prev_zone_breakout    first 3 days      379.0        439.0         42           20
+                      last 3 days      -274.0        374.0         42           23
+                      mid-month         -56.0        191.0        201          142
+psar_sensex           first 3 days     -319.0        678.0         23           19
+                      last 3 days       230.0        168.0         28           27
+                      mid-month         251.0        503.0        133          149
+
+walk-forward (skip buckets that lost in earlier years):
+           all      kept  skipped
+year                             
+2023  -19009.0     -80.0       93
+2024  276684.0  111652.0      431
+2025  124328.0   94064.0      184
+2026  272046.0  195370.0       85
+TOTAL 654,049 -> 401,006
+consistent effects: failbreak_nifty on mid-month: +812 → +1040 per trade (43/25 trades); judas_swing on mid-month: +309 → +468 per trade (109/47 trades); orb_breakout on mid-month: +344 → +433 per trade (216/111 trades); pivot_breakout on first 3 days: +373 → +310 per trade (43/20 trades); pivot_breakout on last 3 days: +165 → +327 per trade (49/29 trades); pivot_breakout_sensex on mid-month: +187 → +286 per trade (101/113 trades); prev_zone_breakout on first 3 days: +379 → +439 per trade (42/20 trades); psar_sensex on last 3 days: +230 → +168 per trade (28/27 trades); psar_sensex on mid-month: +251 → +503 per trade (133/149 trades)
+
+===== event
+average Rs per trade (pick = <=2024, unseen = 2025-26):
+                                     mean_pick  mean_unseen  size_pick  size_unseen
+strategy              event                                                        
+ema_cross_sensex      RBI policy         -68.0       -676.0        7.0          3.0
+                      day after Fed     -434.0        523.0        7.0          9.0
+                      normal day         200.0         66.0      282.0        321.0
+failbreak_nifty       RBI policy         797.0      -1359.0        2.0          1.0
+                      normal day         661.0        926.0       53.0         28.0
+judas_swing           RBI policy        -868.0      -1044.0        2.0          2.0
+                      day after Fed      582.0      -1035.0        4.0          2.0
+                      normal day         230.0        609.0      138.0         59.0
+orb_breakout          RBI policy        1190.0       -490.0        7.0          1.0
+                      day after Fed     1160.0       -146.0       10.0          7.0
+                      normal day         275.0        426.0      266.0        141.0
+pivot_breakout        RBI policy          71.0       -962.0        8.0          3.0
+                      day after Fed     1080.0       -236.0       11.0         11.0
+                      normal day         101.0        340.0      327.0        178.0
+pivot_breakout_sensex RBI policy        -507.0       -739.0        3.0          1.0
+                      day after Fed     -793.0       -378.0        4.0          8.0
+                      normal day          89.0        476.0      133.0        141.0
+prev_zone_breakout    RBI policy         -17.0       -791.0        9.0          2.0
+                      day after Fed      162.0        812.0       12.0          9.0
+                      normal day         -33.0        223.0      264.0        174.0
+psar_sensex           RBI policy        1762.0      -1065.0        5.0          4.0
+                      day after Fed    -1057.0        316.0        3.0         10.0
+                      normal day         152.0        516.0      176.0        181.0
+
+walk-forward (skip buckets that lost in earlier years):
+           all      kept  skipped
+year                             
+2023  -19009.0    5924.0      243
+2024  276684.0   64705.0      539
+2025  124328.0  102926.0       84
+2026  272046.0  272046.0        0
+TOTAL 654,049 -> 445,601
+consistent effects: failbreak_nifty on normal day: +661 → +926 per trade (53/28 trades); judas_swing on normal day: +230 → +609 per trade (138/59 trades); orb_breakout on normal day: +275 → +426 per trade (266/141 trades); psar_sensex on normal day: +152 → +516 per trade (176/181 trades)
