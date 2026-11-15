@@ -1,0 +1,13 @@
+🧪 dhan_quant · Research #6: pairs trading (50 NIFTY stocks)
+₹1L per leg, buy the laggard / short the leader · real costs + slippage
+Picked on 2024 · judged 2025–Oct 2026
+
+📆 Multi-Day
+Chosen on 2024: F 120, N 10, z_in 2.5, z_stop 0
+2024 33 tr net +39.7k → unseen 99 tr gross -93.6k, net -121.9k (drop -143.6k)
+0% of 24 variants won both periods · luck-adjusted 0%
+
+⏱️ Intraday
+Chosen on 2024: N 10, z_in 3
+2024 246 tr net -18.7k → unseen 372 tr gross +17.6k, net -73.3k (drop -99.6k)
+0% of 6 variants won both periods · luck-adjusted 0%

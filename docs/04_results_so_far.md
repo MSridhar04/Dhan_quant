@@ -15,6 +15,7 @@
 | 15 Nov | **Research #3 position sizing**: inverse volatility / risk parity / vol targeting / drawdown brake, sizes from past data, test 2023–26 | Inverse volatility: same profit, worst drop −18% (2-lot base: ₹13.13L / −₹1.38L vs ₹13.12L / −₹1.68L) (see `08_sizing.md`) | Use it when scaling to 2+ lots; nothing to change at 1 lot |
 | 15 Nov | **Research #4 calendar & events**: weekday, expiry distance, month start/end, RBI/Budget/Fed/election | Skip rules hurt (+₹6.54L → +₹4.0–4.9L); only EMA SENSEX on Fridays lost in both periods (−₹26k unseen) (see `09_calendar.md`) | No rules; watch EMA SENSEX Fridays in paper |
 | 15 Nov | **Research #5 gamma exposure**: dealer positioning from OI + IV; dampening, expiry pinning, busy model, strategy filter | No effect on moves; close nearer the max-OI strike only 35% / 22% of expiry days (no pinning); no AUC gain; skip rule +₹6.83L → +₹5.67L (see `10_gamma.md`) | No usable edge; "max pain" not supported |
+| 15 Nov | **Research #6 pairs trading** (50 NIFTY stocks): multi-day (futures) and intraday | Multi-day: unseen −₹1.22L (−₹94k even before costs). Intraday: +₹18k before costs but −₹73k after; 0 settings won both periods (see `11_pairs.md`) | Real intraday snap-back, but ₹50–110 per trade vs ₹250 costs |
 
 Related dhan_algo results that shape the plan:
 - **5 years:** the 7 paper strategies ≈ ₹0 on Nov 2021 – Oct 2023 (never tuned on) vs +₹6.2L on the tuned years.

@@ -1,0 +1,16 @@
+🧭 Pairs trading · my reading
+
+❌ Multi-day pairs (held for days via stock futures): no edge
+Best on 2024 (+₹39.7k, 33 trades) → unseen −₹1.22L (99 trades); even before costs −₹93.6k. Pairs that "belonged together" in the past drifted apart for weeks (IT and bank pairs).
+
+❌ Intraday pairs: a REAL but tiny edge, eaten by costs
+Before costs every setting made money in both periods (unseen +₹2k to +₹1.45L), i.e. related stocks really do snap back within the day.
+But it's only ₹50–110 per trade, against ~₹250 of costs (4 orders, STT, slippage): after costs every setting lost (unseen −₹42k to −₹3.8L).
+
+Same lesson as the option tests: the market is fair enough that small statistical edges don't survive retail costs.
+To make intraday pairs work you'd need ~3× lower costs (bigger size per order doesn't help much: STT and slippage scale with size).
+
+Quant research scorecard:
+✅ busy/quiet model (live) · ✅ inverse-vol sizing (for 2+ lots)
+❌ direction · VRP · regimes · calendar (watch EMA SENSEX Fri) · gamma · pairs
+⏳ futures lead-lag (needs ~3–4 weeks of recorded futures) · order flow (~Feb 2027)
