@@ -12,6 +12,7 @@
 | 15 Nov | Adding India VIX + synthetic futures | Almost no change | Option prices already contain VIX's information |
 | 15 Nov | **Research #1 VRP**: sell hedged ATM straddle 1–3 days before weekly expiry, hold to expiry | Best on training +₹55k → unseen NIFTY +₹9k, SENSEX +₹2k; luck-adjusted 0–1% (see `06_vrp.md`) | Weekly option premium isn't reliably rich after costs; results depend on the period |
 | 15 Nov | **Research #2 regimes**: skip strategies in regimes they lost in before (rule / clustering / hidden Markov), walk-forward 2023–26 | Hurts: +₹6.78L → +₹3.83L to +₹5.06L; helped 0–1 of 4 years (see `07_regimes.md`) | Strategies earn in most regimes; keep them all on |
+| 15 Nov | **Research #3 position sizing**: inverse volatility / risk parity / vol targeting / drawdown brake, sizes from past data, test 2023–26 | Inverse volatility: same profit, worst drop −18% (2-lot base: ₹13.13L / −₹1.38L vs ₹13.12L / −₹1.68L) (see `08_sizing.md`) | Use it when scaling to 2+ lots; nothing to change at 1 lot |
 
 Related dhan_algo results that shape the plan:
 - **5 years:** the 7 paper strategies ≈ ₹0 on Nov 2021 – Oct 2023 (never tuned on) vs +₹6.2L on the tuned years.

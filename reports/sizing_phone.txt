@@ -1,0 +1,18 @@
+🧪 dhan_quant · Research #3: position sizing by risk
+Every trade kept, only lot sizes change · sizes set monthly from past data · test 2023–Oct 2026
+
+✅ Inverse volatility wins (strategies that swing more get fewer lots)
+At 2 lots average:
+• Equal 2 lots each: +₹13.12L · worst drop −₹1.68L
+• Inverse volatility: +₹13.13L · worst drop −₹1.38L
+Same profit, 18% smaller worst drop (return/drop 9.5 vs 7.8)
+
+Suggested lots at a 2-lot level (updated monthly):
+EMA SENSEX 1 · PSAR SENSEX 1 · Judas 3 · ORB 2 · Pivot NIFTY 2 · Pivot SENSEX 2 · Prev-zone 2 · Failbreak 2
+
+Other methods:
+• Risk parity: no better than equal
+• Drawdown brake (halve after a big fall): smaller drops but less profit; pausing at 1 lot cost more than half the profit
+• Volatility targeting (cut size in jumpy periods): worse (return/drop 5.4)
+
+At today's 1 lot each, nothing to change: lots can't be split. Use it when you scale up to 2+ lots.
