@@ -1,0 +1,67 @@
+RESEARCH #5: GAMMA EXPOSURE (dealer positioning) from cached weekly-option OI and IV
+
+A. NIFTY: next-60-min range (x normal) and busy rate by gamma_ratio fifth (0 = most negative/amplifying, 4 = most positive/dampening)
+       range_vs_normal          busy           n       
+period            pick unseen   pick unseen pick unseen
+fifth                                                  
+0                1.596  1.550  0.263  0.245  468    576
+1                1.582  1.562  0.257  0.232  467    237
+2                1.566  1.561  0.261  0.243  467    189
+3                1.537  1.442  0.240  0.185  467    205
+4                1.519  1.540  0.229  0.259  468    170
+
+B. NIFTY: expiry days where the max-OI strike at 12:00 differs from ATM (189 of 263 days)
+        days  close_to_pin_bp  close_to_atm_bp  pin_closer_pct
+period                                                        
+pick     125             49.4             33.2            32.0
+unseen    64             30.5             27.4            40.6
+
+C. NIFTY: busy-30-min model AUC on 2026 - without gamma 0.6942 | with gamma 0.6931
+
+A. SENSEX: next-60-min range (x normal) and busy rate by gamma_ratio fifth (0 = most negative/amplifying, 4 = most positive/dampening)
+       range_vs_normal          busy           n       
+period            pick unseen   pick unseen pick unseen
+fifth                                                  
+0                1.516  1.476  0.292  0.236  106    522
+1                1.473  1.521  0.219  0.258  105    329
+2                1.425  1.448  0.226  0.226  106    212
+3                1.600  1.444  0.248  0.251  105    167
+4                1.587  1.505  0.264  0.293  106    147
+
+B. SENSEX: expiry days where the max-OI strike at 12:00 differs from ATM (145 of 183 days)
+        days  close_to_pin_bp  close_to_atm_bp  pin_closer_pct
+period                                                        
+pick      75            134.1             17.1             8.0
+unseen    70             38.2             27.4            37.1
+
+C. SENSEX: busy-30-min model AUC on 2026 - without gamma 0.6852 | with gamma 0.6842
+
+D. paper strategies by gamma sign at entry (avg Rs per trade, trades):
+                                        mean         size       
+period                                  pick  unseen pick unseen
+strategy              sign                                      
+ema_cross_sensex      amplifying (-)    77.0   158.0   37    138
+                      dampening (+)    497.0    -0.0   94    196
+failbreak_nifty       amplifying (-) -1357.0  -816.0    3     10
+                      dampening (+)    783.0  1616.0   52     23
+judas_swing           amplifying (-)   -35.0   376.0    9     13
+                      dampening (+)    242.0   538.0  135     50
+orb_breakout          amplifying (-)   374.0   102.0   25     39
+                      dampening (+)    325.0   496.0  258    110
+pivot_breakout        amplifying (-)  -160.0  -101.0   43     56
+                      dampening (+)    172.0   446.0  303    136
+pivot_breakout_sensex amplifying (-)   721.0   520.0   23     68
+                      dampening (+)    151.0   366.0   53     81
+prev_zone_breakout    amplifying (-)  -134.0   344.0   23     41
+                      dampening (+)    -14.0   211.0  262    144
+psar_sensex           amplifying (-)   109.0   373.0   13     76
+                      dampening (+)    552.0   538.0   69    119
+
+walk-forward skip rule:
+           all      kept
+year                    
+2023   -1050.0   16151.0
+2024  286415.0  167970.0
+2025  125860.0  108977.0
+2026  272046.0  273668.0
+TOTAL 683,271 -> 566,767

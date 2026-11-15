@@ -19,6 +19,7 @@ and show the live odds in the Control Center's **Quant** tab. It never places or
 | [docs/07_regimes.md](docs/07_regimes.md) | Research #2: regime detection, the method and the verdict |
 | [docs/08_sizing.md](docs/08_sizing.md) | Research #3: position sizing by risk, the method and the verdict |
 | [docs/09_calendar.md](docs/09_calendar.md) | Research #4: calendar and event effects, the method and the verdict |
+| [docs/10_gamma.md](docs/10_gamma.md) | Research #5: gamma exposure / dealer positioning, the method and the verdict |
 | [docs/glossary.md](docs/glossary.md) | Words like basis point, AUC, calibration, implied volatility |
 
 ## Folder map

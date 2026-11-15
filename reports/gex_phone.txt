@@ -1,0 +1,12 @@
+🧪 dhan_quant · Research #5: gamma exposure (dealer positioning)
+From option open interest + IV · pick ≤2024 · check 2025–26
+
+📈 NIFTY
+Expiry pinning: close nearer the max-OI strike than ATM on 35% of 189 expiry days (50% = no effect)
+Busy model AUC 2026: 0.694 → 0.693 with gamma features
+
+📈 SENSEX
+Expiry pinning: close nearer the max-OI strike than ATM on 22% of 145 expiry days (50% = no effect)
+Busy model AUC 2026: 0.685 → 0.684 with gamma features
+
+🧰 Strategies by gamma sign, skip rule 2023–26: +683k → +567k (helped 2 of 4 years)

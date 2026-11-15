@@ -14,6 +14,7 @@
 | 15 Nov | **Research #2 regimes**: skip strategies in regimes they lost in before (rule / clustering / hidden Markov), walk-forward 2023–26 | Hurts: +₹6.78L → +₹3.83L to +₹5.06L; helped 0–1 of 4 years (see `07_regimes.md`) | Strategies earn in most regimes; keep them all on |
 | 15 Nov | **Research #3 position sizing**: inverse volatility / risk parity / vol targeting / drawdown brake, sizes from past data, test 2023–26 | Inverse volatility: same profit, worst drop −18% (2-lot base: ₹13.13L / −₹1.38L vs ₹13.12L / −₹1.68L) (see `08_sizing.md`) | Use it when scaling to 2+ lots; nothing to change at 1 lot |
 | 15 Nov | **Research #4 calendar & events**: weekday, expiry distance, month start/end, RBI/Budget/Fed/election | Skip rules hurt (+₹6.54L → +₹4.0–4.9L); only EMA SENSEX on Fridays lost in both periods (−₹26k unseen) (see `09_calendar.md`) | No rules; watch EMA SENSEX Fridays in paper |
+| 15 Nov | **Research #5 gamma exposure**: dealer positioning from OI + IV; dampening, expiry pinning, busy model, strategy filter | No effect on moves; close nearer the max-OI strike only 35% / 22% of expiry days (no pinning); no AUC gain; skip rule +₹6.83L → +₹5.67L (see `10_gamma.md`) | No usable edge; "max pain" not supported |
 
 Related dhan_algo results that shape the plan:
 - **5 years:** the 7 paper strategies ≈ ₹0 on Nov 2021 – Oct 2023 (never tuned on) vs +₹6.2L on the tuned years.
