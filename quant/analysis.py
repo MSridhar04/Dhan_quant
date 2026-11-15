@@ -1,6 +1,6 @@
 """Stage 4: what the minutes look like, Nov 2021 - Dec 2025 only (2026 is kept for the test).
 
-    python -m prob.analysis       -> reports/analysis.txt (+ phone summary returned by summary())
+    python -m quant.analysis       -> reports/analysis.txt (+ phone summary returned by summary())
 """
 from __future__ import annotations
 
@@ -59,7 +59,7 @@ def one(name: str) -> tuple[list[str], dict]:
 
 def run() -> tuple[str, str]:
     REP.mkdir(exist_ok=True)
-    full, S = [], ["🔎 dhan_prob · Stage 4: how the minutes behave", "Nov 2021 – Dec 2025 (2026 kept for the test)", ""]
+    full, S = [], ["🔎 dhan_quant · Stage 4: how the minutes behave", "Nov 2021 – Dec 2025 (2026 kept for the test)", ""]
     for name in ("NIFTY", "SENSEX"):
         L, f = one(name)
         full += L

@@ -1,6 +1,6 @@
 """Step 1b (2026-11-15): two uses of the big-move model.
 
-    python -m prob.step1b        -> reports/step1b.txt, reports/step1b_phone.txt (run via prob.run_step1b)
+    python -m quant.step1b        -> reports/step1b.txt, reports/step1b_phone.txt (run via quant.run_step1b)
 
 Models (no peeking): model A trained Nov 2021 - Dec 2024 -> predicts 2025 (used ONLY to choose settings);
 model B trained up to Dec 2025 -> predicts 2026 (the test). Cut-offs are quantiles of each model's 2025 predictions.
@@ -24,8 +24,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from prob.model import PARAMS  # noqa: E402
-from prob.step1 import ALGO, DATA, REP, TICK, _feat_list, add_labels, breadth_features, opt_px  # noqa: E402
+from quant.model import PARAMS  # noqa: E402
+from quant.step1 import ALGO, DATA, REP, TICK, _feat_list, add_labels, breadth_features, opt_px  # noqa: E402
 
 STEP = {"NIFTY": 50, "SENSEX": 100}
 QTY = {"NIFTY": 65, "SENSEX": 20}

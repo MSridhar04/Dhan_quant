@@ -1,7 +1,7 @@
 """Train on data up to 2025-12-31, freeze, then test on 2026 (never seen). LightGBM multiclass -> P(bearish),
 P(sideways), P(bullish) for the next h minutes (h = 1, 5, 15; 5 is the main one).
 
-    python -m prob.model            -> reports/verdict.txt, reports/calibration_<IDX>_h5.png, models/*.txt
+    python -m quant.model            -> reports/verdict.txt, reports/calibration_<IDX>_h5.png, models/*.txt
 
 Steps per index and horizon:
   1. choose the number of trees: train Nov 2021 - Dec 2024, early-stop on 2025 (2026 untouched)
@@ -143,7 +143,7 @@ def profit_check(name: str, te: pd.DataFrame, p: np.ndarray, thr: float, hold: i
 
 def run() -> str:
     REP.mkdir(exist_ok=True)
-    L = ["dhan_prob: probability of the next move after each 1-min candle",
+    L = ["dhan_quant: probability of the next move after each 1-min candle",
          "Trained on Nov 2021 - Dec 2025 only. TEST = 1 Jan 2026 onwards (never seen, model frozen before).", ""]
     summary = {}
     for name in ("NIFTY", "SENSEX"):

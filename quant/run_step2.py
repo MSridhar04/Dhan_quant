@@ -1,5 +1,5 @@
 """Step 2 rerun (2026-11-15): same tests as Step 1 + quiet-day, now with India VIX and synthetic-futures features.
-Sends a before/after comparison to Telegram.   python -m prob.run_step2
+Sends a before/after comparison to Telegram.   python -m quant.run_step2
 """
 import shutil
 import sys
@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 REP = ROOT / "reports"
 sys.path.insert(0, str(ROOT))
-from prob.run_step1 import tg_file, tg_text  # noqa: E402
+from quant.run_step1 import tg_file, tg_text  # noqa: E402
 
 
 def keep_old(name: str) -> list[str]:
@@ -26,12 +26,12 @@ if __name__ == "__main__":
         old1 = keep_old("step1_phone.txt")[3:]
         keep_old("step1.txt"); keep_old("quietday.txt")
         old_q = keep_old("quietday_phone.txt")[3:]
-        from prob import quietday, step1
+        from quant import quietday, step1
         S1, L1 = step1.run()
         shutil.copy(REP / "step1.txt", REP / "step2_tests.txt")
         S2, L2 = quietday.run()
         shutil.copy(REP / "quietday.txt", REP / "step2_quietday.txt")
-        out = ["🧪 dhan_prob Step 2 · with India VIX + synthetic futures", "Train ≤2025 · test 2026 · before → after", ""]
+        out = ["🧪 dhan_quant Step 2 · with India VIX + synthetic futures", "Train ≤2025 · test 2026 · before → after", ""]
         for new, old in zip(S1, old1):
             if new.strip() and new != old and not new.startswith(("📈", "🧰")):
                 out += [f"before: {old}", f"after:  {new}"]
@@ -46,5 +46,5 @@ if __name__ == "__main__":
             tg_file(REP / f, cap)
     except Exception as e:                                   # noqa: BLE001
         traceback.print_exc()
-        tg_text(f"⚠️ dhan_prob Step 2 failed: {type(e).__name__}: {e}")
+        tg_text(f"⚠️ dhan_quant Step 2 failed: {type(e).__name__}: {e}")
         raise

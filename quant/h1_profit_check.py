@@ -1,8 +1,8 @@
 import sys
-sys.path.insert(0, r"C:\Users\Sridhar M\Desktop\Main_projects\dhan_prob")
+sys.path.insert(0, r"C:\Users\Sridhar M\Desktop\Main_projects\dhan_quant")
 sys.stdout.reconfigure(encoding="utf-8")
 import numpy as np, pandas as pd
-from prob import model as M
+from quant import model as M
 df, feats, tr, v, te, p, p_val, mdl = M.fit("SENSEX", 1)
 y = te.y1.to_numpy().astype(int)
 for hold in (1, 2, 3):

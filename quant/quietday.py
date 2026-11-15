@@ -1,6 +1,6 @@
 """Quiet-DAY test (2026-11-15): at 09:30 decide whether to sell ONE iron fly and hold it to 15:15.
 
-    python -m prob.run_quietday    -> reports/quietday.txt + Telegram
+    python -m quant.run_quietday    -> reports/quietday.txt + Telegram
 
 Trade: at 09:30 sell the ATM CE + PE and buy CE / PE w strikes away (w = 2/4/6), 1 lot, 1 tick slippage per leg,
 dhan_algo charges on all 8 fills. Exit 15:15, or (variant) when the loss reaches 1x the credit received.
@@ -20,8 +20,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from prob.step1 import ALGO, DATA, REP, TICK, _feat_list, breadth_features  # noqa: E402
-from prob.step1b import QTY, STEP, _cost  # noqa: E402
+from quant.step1 import ALGO, DATA, REP, TICK, _feat_list, breadth_features  # noqa: E402
+from quant.step1b import QTY, STEP, _cost  # noqa: E402
 
 ENTRY_MOD = 15                                       # the 09:30 candle (minute 15 of the session)
 EXIT_HM = "15:15"

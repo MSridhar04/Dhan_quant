@@ -1,7 +1,7 @@
 """Step 1 improvements (2026-11-15): better questions, more features, a filter for the 7 paper strategies.
-Train/tune on data up to 2025-12-31, test once on 2026 (same rule as prob/model.py).
+Train/tune on data up to 2025-12-31, test once on 2026 (same rule as quant/model.py).
 
-    python -m prob.step1            -> reports/step1.txt + reports/step1_phone.txt
+    python -m quant.step1            -> reports/step1.txt + reports/step1_phone.txt
 
 A. New features: market breadth from the 50 NIFTY stocks (share rising this minute / over 5 min / above their open)
    and the heavyweights' last moves (HDFCBANK, RELIANCE, ICICIBANK, INFY, BHARTIARTL, TCS). Stock data starts
@@ -33,9 +33,9 @@ ROOT = Path(__file__).resolve().parent.parent
 ALGO = ROOT.parent / "dhan_algo"
 DATA, REP = ROOT / "data", ROOT / "reports"
 sys.path.insert(0, str(ROOT))
-from prob.model import DROP, PARAMS, TRAIN_END, TUNE_END, _opt, logloss  # noqa: E402
+from quant import features as F  # noqa: E402
+from quant.model import DROP, PARAMS, TRAIN_END, TUNE_END, _opt, logloss  # noqa: E402
 
-HEAVY = {"1333": "hdfcbank", "2885": "reliance", "4963": "icici", "1594": "infy", "10604": "bharti", "11536": "tcs"}
 HORIZONS = (15, 30, 60)
 BARRIER_K = 1.0
 TICK = 0.05
@@ -46,34 +46,14 @@ P1 = {**PARAMS, "num_threads": 10}
 def _stock(sid: str) -> pd.DataFrame:
     files = sorted(glob.glob(str(ALGO / "data" / "bars" / f"NSE_EQ_{sid}" / "*.parquet")))
     s = pd.concat([pd.read_parquet(f, columns=["ts", "open", "close"]) for f in files], ignore_index=True)
-    s = s.drop_duplicates("ts").sort_values("ts")
-    s["day"] = s.ts.dt.normalize()
-    g = s.groupby("day")
-    out = pd.DataFrame({"ts": s.ts,
-                        "up1": (g.close.diff() > 0).astype(float),
-                        "up5": (s.close / g.close.shift(5) - 1 > 0).astype(float),
-                        "above_open": (s.close > g.open.transform("first")).astype(float),
-                        "r1": (s.close / g.close.shift(1) - 1) * 1e4,
-                        "r5": (s.close / g.close.shift(5) - 1) * 1e4})
-    out["sid"] = sid
-    return out
+    return F.stock_minute(s, sid)                         # shared with the live engine
 
 
 def breadth_features() -> pd.DataFrame:
     sids = [Path(p).name.split("_")[-1] for p in glob.glob(str(ALGO / "data" / "bars" / "NSE_EQ_*"))]
     with ProcessPoolExecutor(max_workers=6) as ex:
         frames = list(ex.map(_stock, sids))
-    allst = pd.concat(frames, ignore_index=True)
-    b = allst.groupby("ts").agg(br_up1=("up1", "mean"), br_up5=("up5", "mean"), br_above_open=("above_open", "mean"),
-                                br_n=("up1", "size"))
-    b = b[b.br_n >= 30].drop(columns="br_n")
-    for c in ("br_up1", "br_up5"):
-        b[f"{c}_chg5"] = b[c] - b[c].shift(5)
-    hv = allst[allst.sid.isin(HEAVY)].pivot_table(index="ts", columns="sid", values=["r1", "r5"])
-    hv.columns = [f"hv_{HEAVY[sid]}_{k}" for k, sid in hv.columns]
-    hv["hv_avg_r1"] = hv[[c for c in hv.columns if c.endswith("_r1")]].mean(axis=1)
-    hv["hv_avg_r5"] = hv[[c for c in hv.columns if c.endswith("_r5")]].mean(axis=1)
-    return b.join(hv, how="outer").reset_index()
+    return F.breadth(frames)
 
 
 # ------------------------------------------------------------------ B. labels
@@ -361,7 +341,7 @@ def run():
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     S, L = run()
-    head = ["🧪 dhan_prob Step 1 · test 2026 (trained ≤2025)", "AUC: 0.50 = coin toss, 0.60+ = useful", ""]
+    head = ["🧪 dhan_quant Step 1 · test 2026 (trained ≤2025)", "AUC: 0.50 = coin toss, 0.60+ = useful", ""]
     (REP / "step1_phone.txt").write_text("\n".join(head + S), encoding="utf-8")
     print("\n".join(head + S))
     print("\n".join(L))

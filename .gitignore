@@ -2,3 +2,6 @@
 data/
 __pycache__/
 *.pyc
+live/
+reports/*.log
+reports/_*

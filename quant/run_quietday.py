@@ -1,4 +1,4 @@
-"""Unattended Step 1b run: python -m prob.run_step1b -> Telegram (summary + full report), or a warning if it fails."""
+"""Unattended quiet-day run: python -m quant.run_quietday -> Telegram (summary + full report), or a warning if it fails."""
 import subprocess
 import sys
 import traceback
@@ -25,15 +25,15 @@ def tg_file(path: Path, caption: str) -> None:
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     try:
-        from prob.step1b import run
+        from quant.quietday import run
         S, L = run()
-        head = ["🧪 dhan_prob Step 1b · big-move model uses · test 2026", "Settings picked on 2025, tested on 2026", ""]
+        head = ["🧪 dhan_quant Quiet-day test · sell 1 iron fly at 09:30", "Settings picked on 2025, tested on 2026 (1 lot)", ""]
         text = "\n".join(head + S)
-        (ROOT / "reports" / "step1b_phone.txt").write_text(text, encoding="utf-8")
+        (ROOT / "reports" / "quietday_phone.txt").write_text(text, encoding="utf-8")
         print(text)
         tg_text(text)
-        tg_file(ROOT / "reports" / "step1b.txt", "dhan_prob Step 1b: full results")
+        tg_file(ROOT / "reports" / "quietday.txt", "dhan_quant quiet-day test: full results")
     except Exception as e:                                   # noqa: BLE001
         traceback.print_exc()
-        tg_text(f"⚠️ dhan_prob Step 1b failed: {type(e).__name__}: {e}")
+        tg_text(f"⚠️ dhan_quant quiet-day test failed: {type(e).__name__}: {e}")
         raise
