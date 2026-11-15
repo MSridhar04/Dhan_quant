@@ -1,0 +1,86 @@
+RESEARCH #2: REGIME DETECTION
+Regime of each day known before it opens; walk-forward by year (learn on earlier years, test the next year).
+
+DESCRIPTIVE (all years, rule regimes): average Rs per trade
+regime                 range-calm  range-volatile  trend-calm  trend-volatile
+strategy                                                                     
+ema_cross_sensex             39.0            -5.0         7.0           402.0
+failbreak_nifty             296.0           975.0       -87.0          1650.0
+iron_fly_weekly             204.0          -280.0       257.0           105.0
+judas_swing                 135.0           571.0       430.0             1.0
+orb_breakout                220.0           575.0       569.0          -124.0
+pivot_breakout               36.0           432.0       236.0            31.0
+pivot_breakout_sensex       -86.0           402.0       419.0           302.0
+prev_zone_breakout          153.0           -31.0        67.0           125.0
+psar_sensex                 162.0           566.0       517.0            73.0
+
+share of days: trend-calm 26%, range-volatile 25%, range-calm 25%, trend-volatile 24%
+
+===== rule
+portfolio by test year (all trades -> with regime filter):
+           all      kept
+year                    
+2023   -8774.0   10012.0
+2024  275537.0  122343.0
+2025  151877.0   93615.0
+2026  259187.0  156846.0
+TOTAL test years: 677,826 -> 382,816
+per strategy (all test years):
+                            all     kept    n  skipped
+strategy                                              
+ema_cross_sensex        68270.0  -1463.0  633      265
+failbreak_nifty         41866.0  41866.0   75        0
+iron_fly_weekly         23777.0 -14295.0  200       53
+judas_swing             67600.0  51077.0  163       16
+orb_breakout           124162.0  88594.0  326       69
+pivot_breakout         103072.0  85776.0  421      199
+pivot_breakout_sensex   70551.0  16065.0  290      119
+prev_zone_breakout      53745.0  28504.0  402      234
+psar_sensex            124784.0  86692.0  379      108
+skipped strategy:regime pairs by test year: 2023: iron_fly_weekly:range-volatile, orb_breakout:range-volatile, pivot_breakout:range-calm, pivot_breakout:trend-volatile, prev_zone_breakout:range-calm, prev_zone_breakout:range-volatile, prev_zone_breakout:trend-calm; 2024: ema_cross_sensex:range-calm, ema_cross_sensex:trend-calm, ema_cross_sensex:trend-volatile, iron_fly_weekly:range-volatile, judas_swing:range-calm, orb_breakout:range-volatile, pivot_breakout:range-calm, pivot_breakout:trend-volatile, pivot_breakout_sensex:range-calm, prev_zone_breakout:range-volatile, prev_zone_breakout:trend-calm, psar_sensex:range-calm, psar_sensex:trend-calm; 2025: ema_cross_sensex:range-calm, iron_fly_weekly:range-volatile, judas_swing:trend-volatile, orb_breakout:trend-volatile, pivot_breakout:range-calm, pivot_breakout:trend-volatile, pivot_breakout_sensex:range-calm, pivot_breakout_sensex:range-volatile, prev_zone_breakout:range-volatile, prev_zone_breakout:trend-calm, psar_sensex:range-calm, psar_sensex:trend-volatile; 2026: ema_cross_sensex:range-calm, ema_cross_sensex:range-volatile, failbreak_nifty:trend-calm, iron_fly_weekly:range-volatile, judas_swing:trend-volatile, orb_breakout:trend-volatile, pivot_breakout:range-calm, pivot_breakout_sensex:range-calm, pivot_breakout_sensex:range-volatile, prev_zone_breakout:range-volatile, psar_sensex:trend-volatile
+
+===== kmeans
+portfolio by test year (all trades -> with regime filter):
+           all      kept
+year                    
+2023   -8774.0    9412.0
+2024  275537.0  103355.0
+2025  151877.0  116430.0
+2026  259187.0  186436.0
+TOTAL test years: 677,826 -> 415,633
+per strategy (all test years):
+                            all     kept    n  skipped
+strategy                                              
+ema_cross_sensex        68270.0   8316.0  633      229
+failbreak_nifty         41866.0  15884.0   75        8
+iron_fly_weekly         23777.0  52442.0  200       45
+judas_swing             67600.0  50796.0  163       28
+orb_breakout           124162.0  86580.0  326       37
+pivot_breakout         103072.0  43521.0  421      150
+pivot_breakout_sensex   70551.0  42493.0  290      149
+prev_zone_breakout      53745.0  15832.0  402      271
+psar_sensex            124784.0  99770.0  379      127
+skipped strategy:regime pairs by test year: 2023: iron_fly_weekly:cluster3, pivot_breakout:cluster2, prev_zone_breakout:cluster1, prev_zone_breakout:cluster2, prev_zone_breakout:cluster3; 2024: ema_cross_sensex:cluster1, ema_cross_sensex:cluster2, iron_fly_weekly:cluster0, iron_fly_weekly:cluster1, judas_swing:cluster0, judas_swing:cluster3, orb_breakout:cluster0, orb_breakout:cluster3, pivot_breakout:cluster0, pivot_breakout:cluster1, pivot_breakout:cluster3, pivot_breakout_sensex:cluster1, pivot_breakout_sensex:cluster2, prev_zone_breakout:cluster0, prev_zone_breakout:cluster1, prev_zone_breakout:cluster2, prev_zone_breakout:cluster3, psar_sensex:cluster1; 2025: ema_cross_sensex:cluster3, iron_fly_weekly:cluster0, iron_fly_weekly:cluster2, pivot_breakout_sensex:cluster1, prev_zone_breakout:cluster0, prev_zone_breakout:cluster2, psar_sensex:cluster1; 2026: ema_cross_sensex:cluster0, ema_cross_sensex:cluster2, failbreak_nifty:cluster2, iron_fly_weekly:cluster3, pivot_breakout_sensex:cluster2, prev_zone_breakout:cluster0, prev_zone_breakout:cluster3, psar_sensex:cluster3
+
+===== hmm
+portfolio by test year (all trades -> with regime filter):
+           all      kept
+year                    
+2023   -8774.0   -9668.0
+2024  275537.0  134769.0
+2025  151877.0  150731.0
+2026  259187.0  230135.0
+TOTAL test years: 677,826 -> 505,967
+per strategy (all test years):
+                            all      kept    n  skipped
+strategy                                               
+ema_cross_sensex        68270.0   26313.0  633      164
+failbreak_nifty         41866.0   41866.0   75        0
+iron_fly_weekly         23777.0   13875.0  200       45
+judas_swing             67600.0   57802.0  163       23
+orb_breakout           124162.0  124162.0  326        0
+pivot_breakout         103072.0   36807.0  421      245
+pivot_breakout_sensex   70551.0   55313.0  290       83
+prev_zone_breakout      53745.0   25045.0  402      238
+psar_sensex            124784.0  124784.0  379        0
+skipped strategy:regime pairs by test year: 2023: iron_fly_weekly:normal, pivot_breakout:calm, prev_zone_breakout:calm; 2024: ema_cross_sensex:calm, iron_fly_weekly:normal, judas_swing:normal, pivot_breakout:calm, pivot_breakout:normal, pivot_breakout_sensex:calm, prev_zone_breakout:calm, prev_zone_breakout:normal; 2025: iron_fly_weekly:stormy, judas_swing:stormy, prev_zone_breakout:stormy; 2026: ema_cross_sensex:stormy, iron_fly_weekly:stormy, judas_swing:stormy, pivot_breakout:stormy, prev_zone_breakout:stormy

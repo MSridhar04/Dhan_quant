@@ -1,0 +1,20 @@
+🧭 Regime detection · my reading
+
+❌ Skipping strategies by regime HURTS
+Test years 2023–26, all strategies: +₹6.78L without filter
+→ rule +₹3.83L · clustering +₹4.16L · hidden Markov +₹5.06L
+Helped only in 2023 (the lean year: −₹9k → +₹10k), cost ₹1.5L+ in 2024.
+
+Why: a regime where a strategy lost in past years usually wasn't bad the next year. Skipping removed many good trades later.
+
+✅ Good news inside it: our strategies make money in MOST regimes
+Average per trade, 5 years (trend/range × calm/volatile):
+• PSAR SENSEX +₹73 to +₹566 in all 4
+• ORB NIFTY positive in 3 of 4 (only trend-volatile −₹124)
+• Pivot NIFTY positive in all 4
+So the 2022–23 weakness isn't a regime we can switch off in advance – it's spread across all regimes.
+
+Iron-fly selling: clustering filter +₹23.8k → +₹52.4k, but the rule filter made it worse (−₹14k): inconsistent = noise.
+
+Decision: keep all 8 strategies running in every regime. 
+Better next steps: (1) position sizing by risk (cut drawdowns without skipping trades), (2) the live Quant tab's track record from tomorrow, (3) order-flow research when depth data is ready (~Feb).

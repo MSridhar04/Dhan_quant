@@ -1,0 +1,14 @@
+🧪 dhan_quant · Research #2: regime detection
+8 paper strategies + weekly iron fly · skip a strategy in regimes it lost in EARLIER years
+Walk-forward: learn on past years, test the next (2023, 2024, 2025, 2026)
+Totals = all trades → with regime filter
+
+🧭 rule: total +678k → +383k
+   2023: -9k→+10k · 2024: +276k→+122k · 2025: +152k→+94k · 2026: +259k→+157k
+   filter helped in 1 of 4 test years
+🔢 kmeans: total +678k → +416k
+   2023: -9k→+9k · 2024: +276k→+103k · 2025: +152k→+116k · 2026: +259k→+186k
+   filter helped in 1 of 4 test years
+🎲 hmm: total +678k → +506k
+   2023: -9k→-10k · 2024: +276k→+135k · 2025: +152k→+151k · 2026: +259k→+230k
+   filter helped in 0 of 4 test years

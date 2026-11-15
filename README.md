@@ -16,6 +16,7 @@ and show the live odds in the Control Center's **Quant** tab. It never places or
 | [docs/04_results_so_far.md](docs/04_results_so_far.md) | Every test so far and what it taught us |
 | [docs/05_research_plan.md](docs/05_research_plan.md) | The quant strategies we'll research next, explained simply |
 | [docs/06_vrp.md](docs/06_vrp.md) | Research #1: volatility risk premium, the method and the verdict |
+| [docs/07_regimes.md](docs/07_regimes.md) | Research #2: regime detection, the method and the verdict |
 | [docs/glossary.md](docs/glossary.md) | Words like basis point, AUC, calibration, implied volatility |
 
 ## Folder map
