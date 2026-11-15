@@ -10,6 +10,7 @@
 | 15 Nov | Sell one iron fly at 09:30 on quiet-rated days | Model halves losses (NIFTY −₹17k vs −₹35k every day) but still negative | Can't fix a losing trade by selecting days |
 | 15 Nov | Filter for the paper strategies (skip low-odds trades) | No skill (AUC 0.51–0.53); skipping would have cut profit | Leave the strategies alone |
 | 15 Nov | Adding India VIX + synthetic futures | Almost no change | Option prices already contain VIX's information |
+| 15 Nov | **Research #1 VRP**: sell hedged ATM straddle 1–3 days before weekly expiry, hold to expiry | Best on training +₹55k → unseen NIFTY +₹9k, SENSEX +₹2k; luck-adjusted 0–1% (see `06_vrp.md`) | Weekly option premium isn't reliably rich after costs; results depend on the period |
 
 Related dhan_algo results that shape the plan:
 - **5 years:** the 7 paper strategies ≈ ₹0 on Nov 2021 – Oct 2023 (never tuned on) vs +₹6.2L on the tuned years.

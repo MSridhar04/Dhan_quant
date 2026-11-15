@@ -1,0 +1,86 @@
+RESEARCH #1: VOLATILITY RISK PREMIUM (sell a hedged ATM straddle before weekly expiry, hold to expiry)
+Chosen on data up to Dec 2024; judged on 2025 - Oct 2026 (unseen). 1 lot, real costs, intrinsic-floored legs.
+
+========== NIFTY (2021-11 .. 2026-10): 778 entry days
+BASELINE sell every week, hold to expiry (net Rs by year):
+day             2021     2022     2023     2024     2025     2026
+entry dte w                                                      
+09:30 1   4   2324.0 -10836.0 -26573.0 -40858.0   4526.0  -7862.0
+          6  12134.0  -7616.0 -33401.0 -40710.0  14412.0   1564.0
+          8  17693.0  -8405.0 -28102.0 -29081.0  26506.0  12273.0
+      2   4 -11450.0 -27712.0 -21878.0 -23713.0 -32357.0  11038.0
+          6 -12467.0 -13819.0 -19984.0 -14687.0  -9630.0  30835.0
+          8 -13631.0   1568.0 -24537.0 -30942.0  24298.0  29405.0
+      3   4 -11551.0 -29012.0 -33590.0  10401.0 -10022.0  23734.0
+          6 -24087.0 -35587.0 -41106.0  14943.0 -10267.0  49591.0
+          8 -38744.0 -23022.0 -49664.0  12492.0  -6756.0  75577.0
+15:10 1   4   1171.0 -28887.0  -1498.0 -15431.0   -858.0 -29999.0
+          6   4043.0 -18285.0   5024.0  -4338.0  17727.0 -23548.0
+          8   6189.0 -13217.0  10235.0  -1147.0  27548.0 -12859.0
+      2   4  -6438.0 -26409.0   -930.0 -23965.0 -24042.0 -22207.0
+          6 -12711.0 -30965.0 -11416.0 -29899.0   9169.0   6385.0
+          8 -15503.0 -27337.0 -13842.0 -23856.0  30019.0  33378.0
+      3   4 -11775.0 -18827.0 -35034.0 -31201.0 -12624.0 -12459.0
+          6 -18064.0 -29131.0 -39240.0 -30545.0  -2275.0  16951.0
+          8 -25924.0  -8029.0 -38708.0 -28457.0  20249.0  26046.0
+
+variants tried 207; 13% made money in BOTH periods
+CHOSEN on training: enter 09:30 with 2 day(s) to expiry, wings ±400 pts, hold to expiry, filter vrp50+vix
+  training: 25 trades, net 54,785
+  UNSEEN 2025-26: 22 trades, net 9,292, win 59%, worst drop -35,442, max loss per trade ~13,351
+  same setup selling EVERY week: unseen net 53,704 (95 trades)
+  luck check: Sharpe 0.26, probability real after 207 tries = 1%
+  Monte Carlo (unseen days reshuffled): middle year 8,168, bad year -44,979, P(losing year) 40%
+
+TOP 8 by training net:
+entry  dte  w  stop    filter  tune_n  tune_net  test_n  test_net  max_loss
+09:30    2  8   0.0 vrp50+vix      25   54785.0      22    9292.0   13351.0
+09:30    2  8   2.0 vrp50+vix      25   54785.0      22    9292.0   13351.0
+15:10    1  8   1.0     vrp30      49   53689.0      30   17799.0   17524.0
+09:30    2  6   0.0 vrp50+vix      25   51818.0      22    5692.0    8073.0
+09:30    2  6   2.0 vrp50+vix      25   51818.0      22    5692.0    8073.0
+09:30    2  6   1.0 vrp50+vix      25   51704.0      22    5692.0    8073.0
+09:30    2  8   1.0 vrp50+vix      25   47540.0      22   10245.0   13351.0
+15:10    1  8   0.0     vrp30      49   44773.0      30   17913.0   17524.0
+
+========== SENSEX (2023-05 .. 2026-10): 535 entry days
+BASELINE sell every week, hold to expiry (net Rs by year):
+day             2023     2024     2025     2026
+entry dte w                                    
+09:30 1   4 -23826.0 -20245.0    475.0 -48686.0
+          6 -16719.0 -25851.0  16215.0 -63817.0
+          8 -10527.0    642.0  26017.0 -65324.0
+      2   4 -12291.0 -18181.0  -2754.0 -13713.0
+          6  -9237.0 -22791.0  -6567.0 -14484.0
+          8   2870.0 -16512.0 -21471.0 -17120.0
+      3   4   1072.0  12132.0 -17441.0  -5894.0
+          6  19621.0  34490.0 -16210.0  18115.0
+          8   5056.0  40972.0  -5175.0  35445.0
+15:10 1   4 -32300.0  -7863.0  19333.0  -3596.0
+          6 -22184.0  -3768.0  30208.0  -7155.0
+          8  -5023.0 -14108.0  44380.0  -9669.0
+      2   4 -20392.0 -12270.0 -15151.0  11870.0
+          6 -19610.0 -11119.0  -8938.0  -5182.0
+          8 -20094.0   1835.0  -7986.0  -8207.0
+      3   4 -12352.0   3397.0 -28453.0 -10730.0
+          6 -14537.0   2349.0 -26378.0 -10976.0
+          8 -15280.0   4888.0 -29037.0  13956.0
+
+variants tried 180; 7% made money in BOTH periods
+CHOSEN on training: enter 09:30 with 3 day(s) to expiry, wings ±600 pts, hold to expiry, filter none
+  training: 79 trades, net 54,111
+  UNSEEN 2025-26: 92 trades, net 1,905, win 35%, worst drop -29,594, max loss per trade ~2,775
+  same setup selling EVERY week: unseen net 1,905 (92 trades)
+  luck check: Sharpe 0.06, probability real after 180 tries = 0%
+  Monte Carlo (unseen days reshuffled): middle year 2,577, bad year -43,721, P(losing year) 46%
+
+TOP 8 by training net:
+entry  dte  w  stop filter  tune_n  tune_net  test_n  test_net  max_loss
+09:30    3  6   0.0   none      79   54111.0      92    1905.0    2775.0
+09:30    3  6   2.0   none      79   54111.0      92    1905.0    2775.0
+09:30    3  6   1.0   none      79   54111.0      92    1905.0    2775.0
+09:30    3  8   0.0   none      73   46028.0      92   30270.0    4736.0
+09:30    3  8   1.0   none      73   46028.0      92   30270.0    4736.0
+09:30    3  8   2.0   none      73   46028.0      92   30270.0    4736.0
+09:30    3  6   2.0  vrp30      24   21728.0      14  -10169.0    2775.0
+09:30    3  6   0.0  vrp30      24   21728.0      14  -10169.0    2775.0

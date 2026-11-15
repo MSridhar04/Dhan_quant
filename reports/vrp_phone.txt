@@ -1,0 +1,17 @@
+🧪 dhan_quant · Research #1: volatility risk premium
+Sell hedged ATM straddle before weekly expiry, hold to expiry
+Chosen ≤2024 · judged 2025–Oct 2026 (unseen) · 1 lot, real costs
+
+📉 NIFTY
+Chosen: 2d before expiry at 09:30, wings ±400, hold to expiry, rich + VIX not rising
+Training 25 tr +54.8k → unseen 22 tr +9.3k (win 59%, drop -35.4k)
+Every week instead: unseen +53.7k
+13% of 207 variants won both periods · luck-adjusted chance real 1%
+Max loss per trade ~₹13k (broker margin higher)
+
+📉 SENSEX
+Chosen: 3d before expiry at 09:30, wings ±600, hold to expiry, every week
+Training 79 tr +54.1k → unseen 92 tr +1.9k (win 35%, drop -29.6k)
+Every week instead: unseen +1.9k
+7% of 180 variants won both periods · luck-adjusted chance real 0%
+Max loss per trade ~₹3k (broker margin higher)

@@ -1,0 +1,15 @@
+🧭 VRP · my reading
+
+❌ No reliable edge after costs
+NIFTY chosen setup: +₹54.8k training → +₹9.3k unseen (22 trades)
+SENSEX chosen setup: +₹54.1k training → +₹1.9k unseen (92 trades)
+Only 7–13% of ~200 variants made money in both periods, and the luck-adjusted chance it's real is 0–1%.
+
+What the year-by-year table shows:
+• Selling weekly iron flies lost in most of 2021–24 (e.g. NIFTY ±400 wings, 1 day before expiry: −₹16k to −₹28k a year)
+• Turned positive in 2025–26 for wide wings (+₹30k/+₹33k)
+→ the premium wasn't consistently "rich" after 8 orders of costs; it depends on the period (SEBI's Nov 2024 expiry and lot-size changes may be part of why 2025–26 differs)
+
+Lesson (matches the earlier tests): in Indian weekly options, option prices are mostly fair, and costs + rare shocks eat the premium.
+
+Next as agreed: regime detection – can we tell 2022–23-type markets from 2024–26 ones, and switch our 8 paper strategies (and selling) on/off by regime?
