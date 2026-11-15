@@ -1,0 +1,21 @@
+🧪 dhan_prob Step 1 · test 2026 (trained ≤2025)
+AUC: 0.50 = coin toss, 0.60+ = useful
+
+📈 NIFTY
+15m target-first: +2.9% vs normal · best opt +0.0k (0 tr)
+15m big move: AUC 0.69 · top10% 49% vs base 25% · straddle -79.9k (497 tr)
+30m target-first: +2.9% vs normal · best opt +0.0k (0 tr)
+30m big move: AUC 0.69 · top10% 46% vs base 25% · straddle -39.5k (231 tr)
+60m target-first: +3.8% vs normal · best opt +2.0k (8 tr)
+60m big move: AUC 0.70 · top10% 47% vs base 24% · straddle -1.9k (81 tr)
+
+📈 SENSEX
+15m target-first: +3.2% vs normal · best opt -0.6k (1 tr)
+15m big move: AUC 0.69 · top10% 48% vs base 24% · straddle -59.8k (397 tr)
+30m target-first: +2.9% vs normal · best opt +3.0k (4 tr)
+30m big move: AUC 0.68 · top10% 44% vs base 24% · straddle -17.5k (143 tr)
+60m target-first: +3.6% vs normal · best opt +0.0k (0 tr)
+60m big move: AUC 0.68 · top10% 43% vs base 24% · straddle +7.2k (58 tr)
+
+🧰 Filter for the 7 strategies (2026)
+All trades +253.9k → kept +219.3k (skipped 79 of 582, AUC 0.51)

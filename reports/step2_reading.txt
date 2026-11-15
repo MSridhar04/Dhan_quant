@@ -1,0 +1,14 @@
+🧭 Step 2 · my reading
+
+VIX + synthetic futures added → almost no change
+• Direction: +0.3–0.4% better (e.g. 2.9% → 3.2% vs normal odds) – still too weak to trade
+• Big-move: same AUC 0.69; straddle buying loses a bit less (NIFTY 30m −₹39.5k → −₹30.9k) but still loses
+• Filter for our strategies: still no skill (AUC 0.53); skipped trades made +₹4.3k → keep all trades
+• Quiet-day iron fly: unchanged, still negative in 2026 (NIFTY −₹19.1k)
+
+Why: the option prices we already used (IV, straddle) already contain what VIX says, and the synthetic future moves with the index minute by minute.
+
+Decision: dhan_prob parked ⏸️
+The only truly new information left is the live order-book depth now being recorded every trading day (from Mon 16 Nov). I'll re-test in 2–3 months when there's enough.
+
+Focus now: the 8 paper strategies from Monday (incl. SAR SENSEX + Failed breakout NIFTY).

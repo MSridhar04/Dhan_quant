@@ -1,0 +1,68 @@
+QUIET-DAY TEST: sell one iron fly at 09:30, hold to 15:15 (or stop at 1x credit)
+Settings chosen on 2025 (model trained <= 2024); test 2026 (model trained <= 2025)
+
+========== NIFTY: 1238 days with option data (Nov 2021 .. Nov 2026)
+BASELINE: sell the 09:30 iron fly EVERY day (net per year, Rs):
+day        2021     2022     2023     2024     2025     2026
+w stop                                                      
+2 False -8488.0 -71627.0 -78182.0 -52059.0 -27754.0 -50306.0
+  True  -8488.0 -71389.0 -78188.0 -51355.0 -27481.0 -50306.0
+4 False   715.0 -78720.0 -94855.0 -38685.0  12869.0 -45866.0
+  True    715.0 -69879.0 -88019.0 -37763.0 -14393.0 -42450.0
+6 False  6227.0 -71211.0 -93194.0 -35661.0  35862.0 -34987.0
+  True   2901.0 -66913.0 -85475.0 -21829.0  15067.0 -23012.0
+  2025 w2 stop0 trade top 30% days: 13,510 (every day -27,754)
+  2025 w2 stop0 trade top 50% days: 5,198 (every day -27,754)
+  2025 w2 stop0 trade top 70% days: -7,473 (every day -27,754)
+  2025 w2 stop1 trade top 30% days: 13,783 (every day -27,481)
+  2025 w2 stop1 trade top 50% days: 5,471 (every day -27,481)
+  2025 w2 stop1 trade top 70% days: -7,200 (every day -27,481)
+  2025 w4 stop0 trade top 30% days: 50,596 (every day 12,869)
+  2025 w4 stop0 trade top 50% days: 26,285 (every day 12,869)
+  2025 w4 stop0 trade top 70% days: 25,433 (every day 12,869)
+  2025 w4 stop1 trade top 30% days: 20,695 (every day -14,393)
+  2025 w4 stop1 trade top 50% days: -1,561 (every day -14,393)
+  2025 w4 stop1 trade top 70% days: -1,829 (every day -14,393)
+  2025 w6 stop0 trade top 30% days: 39,615 (every day 35,862)
+  2025 w6 stop0 trade top 50% days: 29,334 (every day 35,862)
+  2025 w6 stop0 trade top 70% days: 57,168 (every day 35,862)
+  2025 w6 stop1 trade top 30% days: 40,479 (every day 15,067)
+  2025 w6 stop1 trade top 50% days: 40,766 (every day 15,067)
+  2025 w6 stop1 trade top 70% days: 47,909 (every day 15,067)
+
+  CHOSEN on 2025: wings ±300 pts, hold to 15:15, trade top 70% days (2025 57,168)
+  2026 TEST model days: 160 trades, net -17,354, win 53%, drop -37,832 | every day: 212 trades, net -34,987 | skipped days net -17,633
+  max loss per fly ~Rs 7,241, credit ~Rs 12,259
+
+========== SENSEX: 852 days with option data (May 2023 .. Nov 2026)
+BASELINE: sell the 09:30 iron fly EVERY day (net per year, Rs):
+day         2023     2024     2025     2026
+w stop                                     
+2 False -29924.0 -36454.0 -45634.0 -43272.0
+  True  -41408.0 -44859.0 -45634.0 -43272.0
+4 False  -1046.0 -33163.0 -21500.0 -21736.0
+  True    -459.0 -34948.0 -21500.0 -21736.0
+6 False   2655.0    535.0  -3763.0    434.0
+  True    7058.0 -10009.0  -2754.0   -315.0
+  2025 w2 stop0 trade top 30% days: -6,798 (every day -45,634)
+  2025 w2 stop0 trade top 50% days: -19,803 (every day -45,634)
+  2025 w2 stop0 trade top 70% days: -32,690 (every day -45,634)
+  2025 w2 stop1 trade top 30% days: -10,330 (every day -45,634)
+  2025 w2 stop1 trade top 50% days: -19,018 (every day -45,634)
+  2025 w2 stop1 trade top 70% days: -32,928 (every day -45,634)
+  2025 w4 stop0 trade top 30% days: 7,331 (every day -21,500)
+  2025 w4 stop0 trade top 50% days: 10,015 (every day -21,500)
+  2025 w4 stop0 trade top 70% days: -1,961 (every day -21,500)
+  2025 w4 stop1 trade top 30% days: 7,331 (every day -21,500)
+  2025 w4 stop1 trade top 50% days: 10,015 (every day -21,500)
+  2025 w4 stop1 trade top 70% days: -1,961 (every day -21,500)
+  2025 w6 stop0 trade top 30% days: 4,023 (every day -3,763)
+  2025 w6 stop0 trade top 50% days: -9,700 (every day -3,763)
+  2025 w6 stop0 trade top 70% days: -9,994 (every day -3,763)
+  2025 w6 stop1 trade top 30% days: 6,150 (every day -2,754)
+  2025 w6 stop1 trade top 50% days: -7,438 (every day -2,754)
+  2025 w6 stop1 trade top 70% days: -8,985 (every day -2,754)
+
+  CHOSEN on 2025: wings ±400 pts, hold to 15:15, trade top 50% days (2025 10,015)
+  2026 TEST model days: 108 trades, net -1,442, win 43%, drop -13,391 | every day: 210 trades, net -21,736 | skipped days net -20,294
+  max loss per fly ~Rs 1,379, credit ~Rs 6,621

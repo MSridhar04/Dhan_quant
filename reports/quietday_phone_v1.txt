@@ -1,0 +1,14 @@
+🧪 dhan_prob Quiet-day test · sell 1 iron fly at 09:30
+Settings picked on 2025, tested on 2026 (1 lot)
+
+📅 NIFTY (options from Nov 2021)
+Sell every day, 2026: -35.0k (212 days)
+Model picks (top 70%, wings ±300): -17.4k (160 days, win 53%, drop -37.8k)
+Days it skipped made -17.6k
+Every-day selling by year (wings ±300): 2021: +6k · 2022: -71k · 2023: -93k · 2024: -36k · 2025: +36k · 2026: -35k
+
+📅 SENSEX (options from May 2023)
+Sell every day, 2026: -21.7k (210 days)
+Model picks (top 50%, wings ±400): -1.4k (108 days, win 43%, drop -13.4k)
+Days it skipped made -20.3k
+Every-day selling by year (wings ±400): 2023: -1k · 2024: -33k · 2025: -22k · 2026: -22k

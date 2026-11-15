@@ -1,0 +1,51 @@
+telegram: OK
+OK   step2_tests.txt (0.0 MB) -> 1322118353
+OK   step2_quietday.txt (0.0 MB) -> 1322118353
+🧪 dhan_prob Step 2 · with India VIX + synthetic futures
+Train ≤2025 · test 2026 · before → after
+
+📈 NIFTY
+before: 15m target-first: +2.9% vs normal · best opt +0.0k (0 tr)
+after:  15m target-first: +3.2% vs normal · best opt +0.3k (2 tr)
+before: 15m big move: AUC 0.69 · top10% 49% vs base 25% · straddle -79.9k (497 tr)
+after:  15m big move: AUC 0.69 · top10% 50% vs base 25% · straddle -76.8k (512 tr)
+before: 30m target-first: +2.9% vs normal · best opt +0.0k (0 tr)
+after:  30m target-first: +3.2% vs normal · best opt +0.0k (0 tr)
+before: 30m big move: AUC 0.69 · top10% 46% vs base 25% · straddle -39.5k (231 tr)
+after:  30m big move: AUC 0.69 · top10% 46% vs base 25% · straddle -30.9k (223 tr)
+before: 60m target-first: +3.8% vs normal · best opt +2.0k (8 tr)
+after:  60m target-first: +3.9% vs normal · best opt +0.0k (0 tr)
+before: 60m big move: AUC 0.70 · top10% 47% vs base 24% · straddle -1.9k (81 tr)
+after:  60m big move: AUC 0.70 · top10% 45% vs base 24% · straddle -7.9k (84 tr)
+
+📈 SENSEX
+before: 15m target-first: +3.2% vs normal · best opt -0.6k (1 tr)
+after:  15m target-first: +3.6% vs normal · best opt +0.2k (29 tr)
+before: 15m big move: AUC 0.69 · top10% 48% vs base 24% · straddle -59.8k (397 tr)
+after:  15m big move: AUC 0.69 · top10% 48% vs base 24% · straddle -46.8k (389 tr)
+before: 30m target-first: +2.9% vs normal · best opt +3.0k (4 tr)
+after:  30m target-first: +3.3% vs normal · best opt +0.0k (0 tr)
+before: 30m big move: AUC 0.68 · top10% 44% vs base 24% · straddle -17.5k (143 tr)
+after:  30m big move: AUC 0.69 · top10% 44% vs base 24% · straddle -9.2k (133 tr)
+before: 60m target-first: +3.6% vs normal · best opt +0.0k (0 tr)
+after:  60m target-first: +3.8% vs normal · best opt +3.9k (2 tr)
+before: 60m big move: AUC 0.68 · top10% 43% vs base 24% · straddle +7.2k (58 tr)
+after:  60m big move: AUC 0.69 · top10% 44% vs base 24% · straddle +3.3k (67 tr)
+
+🧰 Filter for the 7 strategies (2026)
+before: All trades +253.9k → kept +219.3k (skipped 79 of 582, AUC 0.51)
+after:  All trades +272.0k → kept +267.8k (skipped 81 of 597, AUC 0.53)
+
+Quiet-day iron fly (after):
+📅 NIFTY (options from Nov 2021)
+Sell every day, 2026: -35.0k (212 days)
+Model picks (top 70%, wings ±300): -19.1k (161 days, win 53%, drop -37.7k)
+Days it skipped made -15.9k
+Every-day selling by year (wings ±300): 2021: +6k · 2022: -71k · 2023: -93k · 2024: -36k · 2025: +36k · 2026: -35k
+
+📅 SENSEX (options from May 2023)
+Sell every day, 2026: -0.3k (210 days)
+Model picks (top 30%, wings ±600, stop 1×): -1.5k (53 days, win 57%, drop -8.6k)
+Days it skipped made +1.2k
+Every-day selling by year (wings ±600): 2023: +7k · 2024: -10k · 2025: -3k · 2026: -0k
+

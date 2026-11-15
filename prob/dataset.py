@@ -57,9 +57,10 @@ def _opt_month(args) -> pd.DataFrame:
         o = pd.read_parquet(f)                       # empty months (no data at Dhan) lack some columns
         if o.empty or not {"ts", "close", "oi", "iv", "offset"} <= set(o.columns):
             return pd.DataFrame()
-        atm = o[o.offset == 0].set_index("ts")
+        atm = o[o.offset == 0].drop_duplicates("ts", keep="last").set_index("ts")
         near = o[o.offset.abs() <= OI_STRIKES].groupby("ts").oi.sum()
-        parts[side] = pd.DataFrame({f"{side}_px": atm.close, f"{side}_iv": atm.iv, f"{side}_oi": near})
+        parts[side] = pd.DataFrame({f"{side}_px": atm.close, f"{side}_iv": atm.iv, f"{side}_oi": near,
+                                    f"{side}_k": atm.strike if "strike" in atm else np.nan})
     out = parts["CE"].join(parts["PE"], how="outer")
     out.index.name = "ts"
     return out.reset_index()
@@ -155,7 +156,33 @@ def build(name: str, other: pd.DataFrame | None = None) -> pd.DataFrame:
             df[f"ce_px_r{k}"] = (df.CE_px / gg.CE_px.shift(k) - 1) * 100
             df[f"pe_px_r{k}"] = (df.PE_px / gg.PE_px.shift(k) - 1) * 100
             df[f"iv_chg{k}"] = df.iv_atm - gg.iv_atm.shift(k)
-        df = df.drop(columns=["CE_px", "PE_px", "CE_iv", "PE_iv", "CE_oi", "PE_oi"])
+        # synthetic future (put-call parity at the ATM strike): F = K + C - P  (Step 2, 2026-11-15)
+        same_k = df.CE_k == df.PE_k
+        syn = np.where(same_k, df.CE_k + df.CE_px - df.PE_px, np.nan)
+        df["syn_basis_bp"] = (syn / df.close - 1) * 1e4                  # futures premium over the index
+        df["_syn"] = syn
+        gg = df.groupby("day")
+        for k in (1, 5, 15):
+            df[f"syn_r{k}"] = (df._syn / gg._syn.shift(k) - 1) * 1e4
+            df[f"syn_lead{k}"] = df[f"syn_r{k}"] - df[f"r{k}"]           # future moved more than the index
+        df["basis_chg15"] = df.syn_basis_bp - gg.syn_basis_bp.shift(15)
+        df = df.drop(columns=["CE_px", "PE_px", "CE_iv", "PE_iv", "CE_oi", "PE_oi", "CE_k", "PE_k", "_syn"])
+    # ---- India VIX (Step 2): level, changes, vs day open / yesterday
+    vf = sorted(glob.glob(str(SRC / "bars" / "IDX_I_21" / "*.parquet")))
+    if vf:
+        v = pd.concat([pd.read_parquet(f, columns=["ts", "close"]) for f in vf], ignore_index=True)
+        v = v.drop_duplicates("ts").sort_values("ts").rename(columns={"close": "vix"})
+        df = df.merge(v, on="ts", how="left")
+        df["vix"] = df.groupby("day").vix.ffill()
+        gv = df.groupby("day").vix
+        for k in (5, 15, 60):
+            df[f"vix_chg{k}"] = df.vix - gv.shift(k)
+        df["vix_from_open"] = df.vix - gv.transform("first")
+        vd = df.groupby("day").vix.last()
+        df = df.join(pd.DataFrame({"vix_prev": vd.shift(), "vix_20d": vd.rolling(20).mean().shift()}), on="day")
+        df["vix_vs_prev"] = df.vix - df.vix_prev
+        df["vix_vs_20d"] = df.vix / df.vix_20d - 1
+        df = df.drop(columns=["vix_prev", "vix_20d"])
     # ---- the other index (same minute)
     if other is not None:
         oth = other[["ts", "r1", "r5", "r15", "from_open"]].rename(
