@@ -58,3 +58,24 @@ Log: `dhan_quant\reports\live_engine.log`.
 ## Test it any time (replay)
 `.venv\Scripts\python.exe -m quant.live.engine --replay 2026-11-13` plays a past day through the same engine
 (about 5 minutes) and the tab shows it as REPLAY.
+
+## How to verify a reading yourself (added 15 Nov)
+Every reading now says what it means **in index points** and **when** to check it. Example from the 13 Nov replay:
+
+> NIFTY 25,139 · Big move in the next 30 min **41%** (normal 25%) · NORMAL
+> *Busy means NIFTY's high–low over the next 30 min is more than **50 pts**. Check at **15:50**.*
+> *Bullish = rises 27 pts before falling 27 pts; bearish the other way; neither = stays inside ±27.*
+
+To check it, note NIFTY's highest and lowest price from now until the check time:
+- range above 50 points = busy;
+- which of +27 / −27 came first = the direction outcome.
+
+You don't have to do it by hand: the **Recent checks** table does it every 15 minutes, for example:
+
+| At | Said | Range | Busy? | Lean → first |
+|---|---|---|---|---|
+| 14:15 | NORMAL 27% | 69.8 / 58.7 pts | ✓ busy | Bull 36% → Bull |
+| 14:30 | NORMAL 26% | 40.0 / 55.9 pts | – calm | Bear 40% → Bull |
+
+One reading proves nothing: a 40% busy call *should* be wrong 6 times in 10. Judge it on the **scorecard** over
+days: the QUIET row should stay well below 25% busy and the BUSY row well above.
