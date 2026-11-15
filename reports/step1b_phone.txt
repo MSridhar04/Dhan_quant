@@ -1,0 +1,17 @@
+🧪 dhan_prob Step 1b · big-move model uses · test 2026
+Settings picked on 2025, tested on 2026
+
+📉 NIFTY · sell iron fly when 'quiet'
+Chosen on 2025: hold 60m, wings ±200 pts
+2026 quiet-only: 323 tr · -67.8k · avg ₹-210 · win 22% · drop -67.8k
+Same trade at fixed times: avg ₹-230/trade (1060 tr)
+Max loss per fly ~₹4k (broker margin higher)
+
+📉 SENSEX · sell iron fly when 'quiet'
+Chosen on 2025: hold 60m, wings ±400 pts
+2026 quiet-only: 402 tr · -94.1k · avg ₹-234 · win 17% · drop -94.3k
+Same trade at fixed times: avg ₹-258/trade (1050 tr)
+Max loss per fly ~₹2k (broker margin higher)
+
+🧰 Filter: buying strategies only when big-move odds are high
+No cut-off helped on 2025 → not useful (2026 all trades +253.9k)

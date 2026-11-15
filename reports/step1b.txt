@@ -1,0 +1,50 @@
+STEP 1b: big-move model -> (1) option selling in quiet windows, (2) filter for the 7 buying strategies
+Settings chosen on 2025 (model trained <= 2024), tested on 2026 (model trained <= 2025)
+
+========== NIFTY
+  2025 quiet10 H30 w2 stop0: 521 tr net -137,620 avg -264
+  2025 quiet10 H30 w2 stop1: 521 tr net -137,620 avg -264
+  2025 quiet10 H30 w4 stop0: 521 tr net -135,586 avg -260
+  2025 quiet10 H30 w4 stop1: 521 tr net -135,586 avg -260
+  2025 quiet20 H30 w2 stop0: 835 tr net -217,722 avg -261
+  2025 quiet20 H30 w2 stop1: 835 tr net -217,722 avg -261
+  2025 quiet20 H30 w4 stop0: 835 tr net -206,669 avg -248
+  2025 quiet20 H30 w4 stop1: 835 tr net -206,669 avg -248
+  2025 quiet10 H60 w2 stop0: 286 tr net -83,473 avg -292
+  2025 quiet10 H60 w2 stop1: 286 tr net -83,473 avg -292
+  2025 quiet10 H60 w4 stop0: 286 tr net -82,903 avg -290
+  2025 quiet10 H60 w4 stop1: 286 tr net -82,903 avg -290
+  2025 quiet20 H60 w2 stop0: 441 tr net -116,172 avg -263
+  2025 quiet20 H60 w2 stop1: 441 tr net -116,172 avg -263
+  2025 quiet20 H60 w4 stop0: 441 tr net -103,900 avg -236
+  2025 quiet20 H60 w4 stop1: 441 tr net -103,900 avg -236
+
+  CHOSEN on 2025: H60 quiet10 w4 stop0 (2025 net -82,903)
+  2026 TEST quiet-only: 323 tr, net -67,820, avg -210, win 22%, drop -67,820, max-loss/trade ~3,643
+  2026 baseline fixed times: 1060 tr, net -243,487, avg -230, win 17%
+
+========== SENSEX
+  2025 quiet10 H30 w2 stop0: 490 tr net -120,711 avg -246
+  2025 quiet10 H30 w2 stop1: 490 tr net -120,711 avg -246
+  2025 quiet10 H30 w4 stop0: 490 tr net -120,849 avg -247
+  2025 quiet10 H30 w4 stop1: 490 tr net -120,849 avg -247
+  2025 quiet20 H30 w2 stop0: 837 tr net -202,296 avg -242
+  2025 quiet20 H30 w2 stop1: 837 tr net -202,296 avg -242
+  2025 quiet20 H30 w4 stop0: 837 tr net -194,957 avg -233
+  2025 quiet20 H30 w4 stop1: 837 tr net -194,957 avg -233
+  2025 quiet10 H60 w2 stop0: 279 tr net -69,568 avg -249
+  2025 quiet10 H60 w2 stop1: 279 tr net -69,568 avg -249
+  2025 quiet10 H60 w4 stop0: 279 tr net -67,466 avg -242
+  2025 quiet10 H60 w4 stop1: 279 tr net -67,466 avg -242
+  2025 quiet20 H60 w2 stop0: 473 tr net -109,843 avg -232
+  2025 quiet20 H60 w2 stop1: 473 tr net -109,843 avg -232
+  2025 quiet20 H60 w4 stop0: 473 tr net -99,850 avg -211
+  2025 quiet20 H60 w4 stop1: 473 tr net -99,141 avg -210
+
+  CHOSEN on 2025: H60 quiet10 w4 stop0 (2025 net -67,466)
+  2026 TEST quiet-only: 402 tr, net -94,110, avg -234, win 17%, drop -94,334, max-loss/trade ~1,650
+  2026 baseline fixed times: 1050 tr, net -270,921, avg -258, win 10%
+
+  filter 2025: keep top 75% big-move odds -> gain -84,209
+  filter 2025: keep top 50% big-move odds -> gain -120,819
+  no cut helped on 2025: filter not used

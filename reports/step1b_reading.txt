@@ -1,0 +1,16 @@
+🧭 Step 1b · my reading
+
+❌ Selling iron flies in "quiet" windows: loses
+NIFTY 2026: 323 trades, −₹67.8k · SENSEX: 402 trades, −₹94.1k
+The quiet signal DID help a little: avg −₹210 vs −₹230 per trade when placed at fixed times, win 22% vs 17%.
+
+Why it loses: costs. An iron fly is 4 options = 8 orders per trade.
+Brokerage ₹160 + taxes + slippage ≈ ₹230 per trade, but an hour of time decay earns only about that much. Intraday, hour-long selling can't beat the costs at 1 lot.
+
+❌ Filter for our 7 buying strategies: makes it worse
+Keeping only high big-move trades would have cut 2025 profit by ₹84k–1.2L, so it was not used.
+
+Bottom line on dhan_prob so far:
+The model really knows when markets will be busy or quiet (AUC 0.69), but every way of trading it intraday loses to option pricing (buying) or costs (selling).
+
+One fair last test: a "quiet DAY" version – predict at 09:30 whether the whole day will be calm, sell one iron fly and hold to 15:15. One trade a day = costs paid once, a full day of time decay.
