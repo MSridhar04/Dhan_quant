@@ -1,0 +1,15 @@
+🧭 Quiet-day test · my reading
+
+❌ Still loses in 2026, but the model clearly picks better days
+NIFTY: model days −₹17.4k (160) vs every day −₹35.0k (212)
+  → days it skipped lost −₹339 each, days it took −₹108 each
+SENSEX: model days −₹1.4k (108) vs every day −₹21.7k (210)
+
+Selling a 09:30 iron fly is itself a losing trade on most years (NIFTY 2022 −₹71k, 2023 −₹93k; only 2021 and 2025 positive). Options are priced fairly intraday, so costs (~₹150–230 per fly) decide the result. The model cuts losses roughly in half, but can't make a losing trade profitable.
+
+📌 dhan_prob summary after all tests
+✅ Honest probabilities, and it really knows busy vs quiet markets (AUC 0.69)
+❌ Not profitable as: direction signal, straddle buying, hourly selling, daily selling, or filter for our 7 strategies
+
+My recommendation: park dhan_prob (code saved). Only reopen if we get new data (India VIX, futures, live order-book depth = Step 2).
+Your 7 paper strategies + failed-breakout candidate remain the better use of time.
