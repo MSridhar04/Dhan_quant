@@ -1,0 +1,49 @@
+STEP 1 RESULTS (train <= 2025, test 2026)
+
+========== NIFTY (73 features, breadth/heavyweights from Oct 2023)
+-- target-first 15 min: normal odds bear 28% / neither 46% / bull 26%; model beats normal odds by 2.88%
+   strong readings 2026: >=50%: 30 (17% right, 33% wrong way)
+   option profit 2026: >=50%: 11 tr -4,230 · >=55%: 0 tr 0 · >=60%: 0 tr 0
+-- big move 15 min: base 25% · AUC 0.689 · top-10% predicted -> 49% big · bottom-10% -> 6% big
+   straddle profit 2026: top 9%: 781 tr -131,790 · top 5%: 497 tr -79,921
+-- target-first 30 min: normal odds bear 28% / neither 45% / bull 26%; model beats normal odds by 2.90%
+   strong readings 2026: >=50%: 6 (0% right, 100% wrong way)
+   option profit 2026: >=50%: 1 tr -676 · >=55%: 0 tr 0 · >=60%: 0 tr 0
+-- big move 30 min: base 25% · AUC 0.691 · top-10% predicted -> 46% big · bottom-10% -> 5% big
+   straddle profit 2026: top 9%: 383 tr -39,767 · top 5%: 231 tr -39,493
+-- target-first 60 min: normal odds bear 28% / neither 46% / bull 25%; model beats normal odds by 3.75%
+   strong readings 2026: >=50%: 51 (45% right, 33% wrong way)
+   option profit 2026: >=50%: 8 tr 1,982 · >=55%: 0 tr 0 · >=60%: 0 tr 0
+-- big move 60 min: base 24% · AUC 0.695 · top-10% predicted -> 47% big · bottom-10% -> 4% big
+   straddle profit 2026: top 9%: 147 tr -16,730 · top 5%: 81 tr -1,934
+
+========== SENSEX (73 features, breadth/heavyweights from Oct 2023)
+-- target-first 15 min: normal odds bear 27% / neither 48% / bull 26%; model beats normal odds by 3.17%
+   strong readings 2026: >=50%: 52 (44% right, 21% wrong way) · >=55%: 3 (0% right, 67% wrong way) · >=60%: 1 (0% right, 100% wrong way)
+   option profit 2026: >=50%: 33 tr -2,010 · >=55%: 3 tr -1,292 · >=60%: 1 tr -581
+-- big move 15 min: base 24% · AUC 0.687 · top-10% predicted -> 48% big · bottom-10% -> 6% big
+   straddle profit 2026: top 9%: 689 tr -108,945 · top 5%: 397 tr -59,776
+-- target-first 30 min: normal odds bear 27% / neither 47% / bull 26%; model beats normal odds by 2.90%
+   strong readings 2026: >=50%: 23 (91% right, 4% wrong way) · >=55%: 2 (100% right, 0% wrong way)
+   option profit 2026: >=50%: 4 tr 3,025 · >=55%: 2 tr 1,158 · >=60%: 0 tr 0
+-- big move 30 min: base 24% · AUC 0.684 · top-10% predicted -> 44% big · bottom-10% -> 5% big
+   straddle profit 2026: top 9%: 266 tr -18,831 · top 5%: 143 tr -17,487
+-- target-first 60 min: normal odds bear 27% / neither 48% / bull 25%; model beats normal odds by 3.58%
+   strong readings 2026: none
+   option profit 2026: >=50%: 0 tr 0 · >=55%: 0 tr 0 · >=60%: 0 tr 0
+-- big move 60 min: base 24% · AUC 0.683 · top-10% predicted -> 43% big · bottom-10% -> 5% big
+   straddle profit 2026: top 9%: 117 tr -14,252 · top 5%: 58 tr 7,207
+
+C. FILTER FOR THE 7 PAPER STRATEGIES (5-year backtest trades)
+training trades 2367 (before 2026), test trades 582 (2026)
+skip level chosen on training (out-of-fold): skip the worst 20% (training gain 8,964)
+2026: all trades 253,916 (582) | kept 219,254 (503) | skipped 34,661 (79)  AUC 0.512
+
+per strategy 2026 (all -> kept):
+  ema_cross_sensex           40,619 ->     39,054  (skipped 12 of 148)
+  judas_swing                12,758 ->      9,323  (skipped 5 of 26)
+  orb_breakout               36,443 ->     38,559  (skipped 3 of 69)
+  pivot_breakout             43,397 ->     41,201  (skipped 9 of 86)
+  pivot_breakout_sensex      52,762 ->     44,352  (skipped 9 of 71)
+  prev_zone_breakout         23,573 ->     14,245  (skipped 30 of 94)
+  psar_sensex                44,365 ->     32,521  (skipped 11 of 88)

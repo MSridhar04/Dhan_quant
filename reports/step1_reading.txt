@@ -1,0 +1,18 @@
+🧭 Step 1 · my reading
+
+✅ BIG-MOVE prediction works (the real find)
+AUC 0.69 on 2026, both indexes, all horizons
+Top 10% readings: ~47% big moves (normal 25%)
+Bottom 10% readings: only ~5% big moves → it spots QUIET periods very well
+
+❌ But buying straddles on it loses (−₹80k on NIFTY 15 min)
+Reason: option prices already include it. IV and straddle price are among the model's top inputs – when a big move is likely, options are already expensive.
+
+❌ Direction (target-first): only ~3% better than normal odds, strong readings rare → still not tradable
+
+❌ Filter for our 7 strategies: no skill (AUC 0.51). Skipping its "bad" trades would have cost ₹34.7k in 2026. Our strategies' winners can't be picked from minute data.
+
+💡 Where the big-move model could still pay:
+1. Option SELLING in predicted-quiet windows (only 5% big moves) – hedged spreads/iron fly; fits the deferred selling idea
+2. As a simpler filter for our buying strategies: only enter when big-move odds are above normal
+Both are quick tests with what we have.
